@@ -1,0 +1,14 @@
+﻿  pch.cpp
+  GameProcess.cpp
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\GameProcess.cpp(5,10): fatal error C1083: 포함 파일을 열 수 없습니다. '../DirectX11Engine/Renderer/Renderer.h': No such file or directory
+  LLYe2.cpp
+  RenderWindow.cpp
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\RenderWindow.cpp(5,10): fatal error C1083: 포함 파일을 열 수 없습니다. '../DirectX11Engine/ErrorLogger.h': No such file or directory
+  WinMain.cpp
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\WinMain.cpp(27,40): error C2660: 'GameProcess::Initialize': 함수는 1개의 인수를 사용하지 않습니다.
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\GameProcess.h(23,7): message : 'GameProcess::Initialize' 선언을 참조하십시오.
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\WinMain.cpp(28,20): error C2039: 'Loop': 'GameProcess'의 멤버가 아닙니다.
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\GameProcess.h(18): message : 'GameProcess' 선언을 참조하십시오.
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\WinMain.cpp(29,20): error C2039: 'Finalize': 'GameProcess'의 멤버가 아닙니다.
+D:\GA2ndStudy\탈락모르면\최진미\Portfolio\5_Project\LulupinYeouiju\LLYe2\LLYe2\GameProcess.h(18): message : 'GameProcess' 선언을 참조하십시오.
+  코드를 생성하고 있습니다...
