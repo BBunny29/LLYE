@@ -24,5 +24,6 @@ private:
 class Test
 {
 	bool test;
+	bool master;
 };
 
