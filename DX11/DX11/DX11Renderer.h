@@ -21,3 +21,8 @@ private:
 
 };
 
+class Test
+{
+	bool test;
+};
+
