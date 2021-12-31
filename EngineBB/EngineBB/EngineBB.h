@@ -2,6 +2,8 @@
 #include "LibraryDefine.h"
 
 class Timer;
+class KeyboardClass;
+class MouseClass;
 
 class EngineBB
 {

@@ -14,7 +14,7 @@ public:
 	AdapterData(Microsoft::WRL::ComPtr<IDXGIAdapter> pAdapter);
 
 private:
-	Microsoft::WRL::ComPtr<IDXGIAdapter1> m_spAdapter = nullptr;
+	Microsoft::WRL::ComPtr<IDXGIAdapter> m_spAdapter = nullptr;
 	Microsoft::WRL::ComPtr<IDXGIOutput> m_spOutput = nullptr;
 	// IDXGIAdapter :
 	// 컴퓨터의 하드웨어 및 소프트웨어 기능을 추상화한 것입니다. 

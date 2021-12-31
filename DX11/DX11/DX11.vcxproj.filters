@@ -39,6 +39,9 @@
     <ClInclude Include="AdapterReader.h">
       <Filter>Renderer\AdapterReader</Filter>
     </ClInclude>
+    <ClInclude Include="DX11LibraryDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

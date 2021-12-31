@@ -72,15 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -101,6 +105,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;DXGI.lib;D3DCompiler.lib;DirectXTK_x32d.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,6 +132,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;DXGI.lib;D3DCompiler.lib;DirectXTK_x32.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -143,8 +153,11 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;DXGI.lib;D3DCompiler.lib;DirectXTK_X64d.lib</AdditionalDependencies>
+      <AdditionalDependencies>DirectXTK_X64d.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -169,6 +182,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;DXGI.lib;D3DCompiler.lib;DirectXTK_x64.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AdapterReader.h" />
@@ -176,6 +192,7 @@
     <ClInclude Include="DX11Define.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="DX11LibraryDefine.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="DX11Renderer.h" />
   </ItemGroup>
