@@ -39,10 +39,10 @@
     <ClInclude Include="DX11Define.h">
       <Filter>Define</Filter>
     </ClInclude>
-    <ClInclude Include="DX11dllDefine.h">
+    <ClInclude Include="DX11LibraryDefine.h">
       <Filter>Define</Filter>
     </ClInclude>
-    <ClInclude Include="DX11LibraryDefine.h">
+    <ClInclude Include="DX11DllDefine.h">
       <Filter>Define</Filter>
     </ClInclude>
   </ItemGroup>

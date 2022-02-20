@@ -207,7 +207,7 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
     <ClInclude Include="AdapterReader.h" />
     <ClInclude Include="DX11Core.h" />
     <ClInclude Include="DX11Define.h" />
-    <ClInclude Include="DX11dllDefine.h" />
+    <ClInclude Include="DX11DllDefine.h" />
     <ClInclude Include="DX11LibraryDefine.h" />
     <ClInclude Include="DX11Renderer.h" />
     <ClInclude Include="framework.h" />

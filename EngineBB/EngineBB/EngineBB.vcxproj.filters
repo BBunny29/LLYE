@@ -47,10 +47,13 @@
     <ClInclude Include="EngineBBLibraryDefine.h">
       <Filter>Define</Filter>
     </ClInclude>
+    <ClInclude Include="IEngineBB.h" />
     <ClInclude Include="EngineBBDefine.h">
       <Filter>Define</Filter>
     </ClInclude>
-    <ClInclude Include="IEngineBB.h" />
+    <ClInclude Include="EngineBBDllDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

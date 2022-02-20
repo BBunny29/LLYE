@@ -3,14 +3,14 @@
 // Engine
 #ifdef _WIN64
 #ifdef _DEBUG
-#pragma comment(lib, "JJEngine64DEBUG")
+#pragma comment(lib, "DX11_x64Debug.lib")
 #else
-#pragma comment(lib, "JJEngine64")
+#pragma comment(lib, "DX11_x64Release.lib")
 #endif
 #else
 #ifdef _DEBUG
-#pragma comment(lib, "JJEngineDEBUG")
+#pragma comment(lib, "DX11_x86Debug.lib")
 #else
-#pragma comment(lib, "JJEngine")
+#pragma comment(lib, "DX11_x86Release.lib")
 #endif
 #endif

@@ -7,7 +7,7 @@
 /// 210629
 /// 필요없는 인터페이스를 제거해야 한다.
 /// 생각을 해보니 OpenGL 등을 쓰지는 않겠지만, ID3D12를 사용할 여지는 있을 것 같다.
-__interface IRenderer 
+__interface IRenderer
 {
 public:
 	//IRenderer() {};

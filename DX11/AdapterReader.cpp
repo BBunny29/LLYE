@@ -1,16 +1,19 @@
 #include "pch.h"
 #include "AdapterReader.h"
 
-using namespace Microsoft::WRL;
+// 전방선언 비슷한 것, static 변수와 전역변수는 같은 맥락
+/// static 변수는 이것을 해주지 않으면 컴파일시 링크에러가 난다(끔찍)
+/// 절대 절대 해주자
+std::vector<AdapterData> AdapterReader::m_adapter_V;
 
 AdapterData::AdapterData(Microsoft::WRL::ComPtr<IDXGIAdapter> pAdapter)
 {
 	this->m_spAdapter = pAdapter;
 	HRESULT hr = pAdapter->GetDesc(&this->m_description);
-	//if (FAILED(hr))
-	//{
-	//	ErrorLogger::Log(hr, "Failed to Get Description for IDXGIAdapter.");
-	//}
+	if (FAILED(hr))
+	{
+		//ErrorLogger::Log(hr, "Failed to Get Description for IDXGIAdapter.");
+	}
 }
 
 std::vector<AdapterData> AdapterReader::GetAdapters()
@@ -36,9 +39,10 @@ std::vector<AdapterData> AdapterReader::GetAdapters()
 	UINT index = 0;
 	while (SUCCEEDED(pFactory->EnumAdapters(index, &pAdapter)))
 	{
-		m_adapter_V.push_back(AdapterData(pAdapter));
+		//m_adapter_V.push_back(AdapterData(pAdapter));
 		index += 1;
 	}
+	
 	return m_adapter_V;
 }
 
