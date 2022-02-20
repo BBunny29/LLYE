@@ -192,12 +192,12 @@ void GameProcess::Draw()
 }
 
 //ImGui를 위한 핸들
-extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+//extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	if (ImGui_ImplWin32_WndProcHandler(hwnd, uMsg, wParam, lParam))
-		return true;
+	//if (ImGui_ImplWin32_WndProcHandler(hwnd, uMsg, wParam, lParam))
+		//return true;
 
 	switch (uMsg)
 	{

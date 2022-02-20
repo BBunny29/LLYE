@@ -1,5 +1,4 @@
 #pragma once
-#pragma comment(lib, "EngineBB.lib")
 
 #include <string>
 

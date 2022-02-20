@@ -2,7 +2,7 @@
 #include "AdapterReader.h"
 
 // 전방선언 비슷한 것, static 변수와 전역변수는 같은 맥락
-/// static 변수는 이것을 해주지 않으면 컴파일시 링크에러가 난다(끔찍)
+/// static 멤버 변수는 이것을 해주지 않으면 컴파일시 링크에러가 난다(끔찍)
 /// 절대 절대 해주자
 std::vector<AdapterData> AdapterReader::m_adapter_V;
 

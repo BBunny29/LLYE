@@ -101,7 +101,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -132,7 +132,7 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -159,8 +159,8 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;DXGI.lib;D3DCompiler.lib;DirectXTK_x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -191,7 +191,7 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
