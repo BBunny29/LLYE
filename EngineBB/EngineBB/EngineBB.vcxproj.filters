@@ -54,6 +54,7 @@
     <ClInclude Include="EngineBBDefine.h">
       <Filter>Define</Filter>
     </ClInclude>
+    <ClInclude Include="IEngineBB.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -75,5 +76,6 @@
     <ClCompile Include="Timer.cpp">
       <Filter>TImer</Filter>
     </ClCompile>
+    <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "GameProcess.h"
-#include <DirectXMath.h>
 
 #include "../DirectX11Engine/Renderer/Renderer.h"
 #include "../DirectX11Engine/Renderer/Camera3D.h"
@@ -20,7 +19,9 @@
 
 
 // ·»´õ·¯ Àü¿ª
-Renderer* g_Renderer;
+//Renderer* g_Renderer;
+
+
 
 GameProcess::GameProcess()
 {

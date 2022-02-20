@@ -11,7 +11,6 @@ class EngineBB;
 
 /// <summary>
 /// GameProcess
-/// 매니저들을 관리
 /// 
 /// 2021. 08. 14 B.BUNNY
 /// </summary>
