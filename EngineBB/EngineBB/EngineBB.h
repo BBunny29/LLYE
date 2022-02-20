@@ -1,5 +1,6 @@
 #pragma once
-#include "LibraryDefine.h"
+#include "EngineBBLibraryDefine.h"
+#include "EngineBBDefine.h"
 #include "IEngineBB.h"
 
 class Timer;

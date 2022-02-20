@@ -1,0 +1,17 @@
+1. 라이브러리 익스포트
+IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Libs" MD "$(ProjectDir)..\OwnLibs\Libs"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Debugger" MD "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+  -> 라이브러리 파일 경로
+copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
+copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+  -> 라이브러리와 헤더를 복사함
+
+MSBuild 명령 및 속성 매크로를 참고할것
+https://docs.microsoft.com/ko-kr/cpp/build/reference/common-macros-for-build-commands-and-properties?view=msvc-170
+
+2.
+
+
+

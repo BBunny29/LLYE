@@ -27,13 +27,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -46,7 +46,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -72,28 +72,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformShortName)$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformShortName)$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformShortName)$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)_$(Platform)$(Configuration)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformShortName)$(Configuration)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_ENGINEBB_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -101,7 +102,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+      <Command>IF NOT EXIST "$(ProjectDir)..\..\OwnLibs" MD "$(ProjectDir)..\..\OwnLibs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Libs" MD "$(ProjectDir)..\..\OwnLibs\Libs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs" MD "$(ProjectDir)..\..\OwnLibs\Incs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"
+copy "$(OutputPath)*.lib" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(OutputPath)*.dll" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -110,10 +117,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_ENGINEBB_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -123,7 +131,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+      <Command>IF NOT EXIST "$(ProjectDir)..\..\OwnLibs" MD "$(ProjectDir)..\..\OwnLibs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Libs" MD "$(ProjectDir)..\..\OwnLibs\Libs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs" MD "$(ProjectDir)..\..\OwnLibs\Incs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"
+copy "$(OutputPath)*.lib" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(OutputPath)*.dll" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,6 +148,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -141,7 +156,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+      <Command>IF NOT EXIST "$(ProjectDir)..\..\OwnLibs" MD "$(ProjectDir)..\..\OwnLibs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Libs" MD "$(ProjectDir)..\..\OwnLibs\Libs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs" MD "$(ProjectDir)..\..\OwnLibs\Incs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"
+copy "$(OutputPath)*.lib" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(OutputPath)*.dll" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,6 +175,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -163,7 +185,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutputPath)*.lib" "..\..\Libs"</Command>
+      <Command>IF NOT EXIST "$(ProjectDir)..\..\OwnLibs" MD "$(ProjectDir)..\..\OwnLibs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Libs" MD "$(ProjectDir)..\..\OwnLibs\Libs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs" MD "$(ProjectDir)..\..\OwnLibs\Incs"
+IF NOT EXIST "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"
+copy "$(OutputPath)*.lib" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(OutputPath)*.dll" "$(ProjectDir)..\..\OwnLibs\Libs"
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

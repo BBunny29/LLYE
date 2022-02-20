@@ -4,10 +4,10 @@
 #include <string>
 
 class RenderWindow;
-class KeyboardClass;
-class MouseClass;
-class Timer;
-class EngineBB;
+//class KeyboardClass;
+//class MouseClass;
+//class Timer;
+//class EngineBB;
 
 /// <summary>
 /// GameProcess
@@ -29,12 +29,12 @@ public:
 	LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
-	EngineBB* m_engineBB;
+	//EngineBB* m_engineBB;
 	RenderWindow* m_Render_window;
-	KeyboardClass* m_Keyboard;
-	MouseClass* m_Mouse;
+	//KeyboardClass* m_Keyboard;
+	//MouseClass* m_Mouse;
 
 private:
-	Timer* m_Timer;
+	//Timer* m_Timer;
 	int m_CameraNum = 0;
 };

@@ -2,8 +2,8 @@
 #include "RenderWindow.h"
 
 #include "GameProcess.h"
-#include "../DirectX11Engine/ErrorLogger.h"
-#include "../DirectX11Engine/StringHelper.h"
+//#include "../DirectX11Engine/ErrorLogger.h"
+//#include "../DirectX11Engine/StringHelper.h"
 
 RenderWindow::RenderWindow()
 {
@@ -25,9 +25,9 @@ bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std
 	this->width = width;
 	this->height = height;
 	this->window_title = window_title;
-	this->window_title_wide = StringHelper::StringToWide(this->window_title);
+	//this->window_title_wide = StringHelper::StringToWide(this->window_title);
 	this->window_class = window_class;
-	this->window_class_wide = StringHelper::StringToWide(this->window_class); //wide string representation of class string (used for registering class and creating window)
+	//this->window_class_wide = StringHelper::StringToWide(this->window_class); //wide string representation of class string (used for registering class and creating window)
 
 	this->RegisterWindowClass();
 
@@ -56,7 +56,7 @@ bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std
 
 	if (this->handle == NULL)
 	{
-		ErrorLogger::Log(GetLastError(), "CreateWindowEX Failed for window: " + this->window_title);
+		//ErrorLogger::Log(GetLastError(), "CreateWindowEX Failed for window: " + this->window_title);
 		return false;
 	}
 
@@ -136,7 +136,7 @@ LRESULT CALLBACK HandleMessageSetup(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 		GameProcess* pWindow = reinterpret_cast<GameProcess*>(pCreate->lpCreateParams);
 		if (pWindow == nullptr) //Sanity check
 		{
-			ErrorLogger::Log("Critical Error: Pointer to window container is null during WM_NCCREATE.");
+			//ErrorLogger::Log("Critical Error: Pointer to window container is null during WM_NCCREATE.");
 			exit(-1);
 		}
 		SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(pWindow));
