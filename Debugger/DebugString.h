@@ -1,5 +1,4 @@
-﻿// Debugger.cpp : 정적 라이브러리를 위한 함수를 정의합니다.
-#include "pch.h"
+﻿#include "pch.h"
 
 #include <malloc.h>
 #include <windows.h>
@@ -8,7 +7,7 @@
 #include <debugapi.h>
 
 #define PDS(x, ...) PrintDebugString(x, ##__VA_ARGS__)
-#define PDS_LOG PrintDebugString("File : %s ", __FILE__); Trace("Func : %s ", __FUNCTION__); 
+#define PDS_LOG PrintDebugString("File : %s ", __FILE__); PrintDebugString("Func : %s ", __FUNCTION__); 
 
 inline void PrintDebugString(char const* const format, ...)
 {

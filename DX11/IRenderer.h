@@ -17,9 +17,6 @@ public:
 	// 엔진 초기화 함수
 	virtual bool Initialize(int hinst, int hWnd, int screenWidth, int screenHeight) abstract;
 
-	// 업데이트
-	virtual void Update(float deltaTIme) abstract;
-
 	// 렌더 시작 부분을 묶는다.
 	virtual void BeginRender() abstract;
 

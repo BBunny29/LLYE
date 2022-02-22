@@ -18,16 +18,17 @@ public:
 
 	HRESULT Init();
 
+	virtual int testFunc(int i) override;
 
 private:
-	std::shared_ptr<IRenderer> CreateRenderer();
+	//virtual std::shared_ptr<IRenderer> CreateRenderer(const wchar_t* dllPath) override;
 
 private:
 
 	std::shared_ptr<IRenderer> m_pRenderer;
 
-	Timer* m_timer;
-	KeyboardClass* m_keyboard;
-	MouseClass* m_mouse;
+	//Timer* m_timer;
+	//KeyboardClass* m_keyboard;
+	//MouseClass* m_mouse;
 
 };

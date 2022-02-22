@@ -1,12 +1,9 @@
 #pragma once
-
+#include <memory>
 #include <string>
 
 class RenderWindow;
-//class KeyboardClass;
-//class MouseClass;
-//class Timer;
-//class EngineBB;
+__interface IEngineBB;
 
 /// <summary>
 /// GameProcess
@@ -17,6 +14,7 @@ class GameProcess
 {
 public:
 	GameProcess();
+	~GameProcess();
 
 	bool Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height);
 	void Finalize();
@@ -26,14 +24,15 @@ public:
 	void Draw();
 	
 	LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+	std::shared_ptr<IEngineBB> CreateEngine(const wchar_t* dllPath);
 
 private:
-	//EngineBB* m_engineBB;
-	RenderWindow* m_Render_window;
+	
+	std::shared_ptr<RenderWindow> m_spRenderWindow;
+	std::shared_ptr<IEngineBB> m_spEngineBB;
 	//KeyboardClass* m_Keyboard;
 	//MouseClass* m_Mouse;
 
 private:
-	//Timer* m_Timer;
 	int m_CameraNum = 0;
 };

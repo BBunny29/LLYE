@@ -2,6 +2,7 @@
 #include "GameProcess.h"
 
 #include "RenderWindow.h"
+#include "IEngineBB.h"
 
 #include <memory>
 
@@ -27,11 +28,18 @@ GameProcess::GameProcess()
 	}
 }
 
+GameProcess::~GameProcess()
+{
+}
+
 bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
-	//g_Renderer = new Renderer();
-	//m_engineBB = new EngineBB();
-	//m_Render_window = new RenderWindow();
+	m_spEngineBB = CreateEngine(L"../OwnLibs/Libs/EngineBB_x64Debug.dll");
+
+	int testnum = 0;
+	testnum = m_spEngineBB->testFunc(3);
+
+	m_spRenderWindow = std::make_shared<RenderWindow>();
 	//m_Keyboard = new KeyboardClass();
 	//m_Mouse = new MouseClass();
 	//m_Timer = new Timer();
@@ -39,7 +47,7 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	//m_Timer->Start();
 
 	/// 윈도우 창 초기화
-	if (!this->m_Render_window->Initialize(this, hInstance, window_title, window_class, width, height))
+	if (!this->m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
 		return false;
 
 	/// 그래픽 초기화
@@ -53,7 +61,7 @@ void GameProcess::Finalize()
 {
 	//if (g_Renderer) { (g_Renderer)->Destroy(); delete g_Renderer; g_Renderer = 0; }
 
-	if (m_Render_window) { (m_Render_window)->Destroy(); delete m_Render_window; m_Render_window = 0; }
+	//if (m_spRenderWindow) { (m_spRenderWindow)->Destroy(); delete m_spRenderWindow; m_spRenderWindow = 0; }
 	//if (m_Keyboard) { /*(m_Keyboard)->Destroy();*/	delete m_Keyboard; m_Keyboard = 0; }
 	//if (m_Mouse) { /*(m_Mouse)->Destroy();*/		delete m_Mouse; m_Mouse = 0; }
 	//if (m_Timer) { /*(m_Timer)->Destroy();*/		delete m_Timer; m_Timer = 0; }
@@ -61,7 +69,7 @@ void GameProcess::Finalize()
 
 bool GameProcess::ProcessMessages()
 {
-	return this->m_Render_window->ProcessMessages();
+	return this->m_spRenderWindow->ProcessMessages();
 }
 
 void GameProcess::Update()
@@ -329,4 +337,40 @@ LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LP
 	default:
 		return DefWindowProc(hwnd, uMsg, wParam, lParam);
 	}
+}
+
+static HMODULE g_hExecutiveHandle;
+typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
+
+
+std::shared_ptr<IEngineBB> GameProcess::CreateEngine(const wchar_t* dllPath)
+{
+	IEngineBB* pExecutive;
+	HRESULT hr;
+
+#ifdef _DEBUG
+	g_hExecutiveHandle = ::LoadLibrary(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll");
+#else
+	g_hExecutiveHandle = ::LoadLibrary(L"DX11_x64Release.dll");
+#endif
+
+	if (g_hExecutiveHandle == 0)
+	{
+		return nullptr;
+	}
+
+	CREATE_INSTANCE_FUNC pFunc;
+	pFunc = (CREATE_INSTANCE_FUNC)::GetProcAddress(g_hExecutiveHandle, "DllCreateInstance");
+
+	hr = pFunc((void**)&pExecutive);
+	if (hr != S_OK)
+	{
+		MessageBox(NULL, L"CreateExecutive() - Executive 생성 실패", L"Error", MB_OK);
+		return FALSE;
+	}
+
+	std::shared_ptr<IEngineBB> _newPtr(pExecutive);
+
+	return _newPtr;
+
 }

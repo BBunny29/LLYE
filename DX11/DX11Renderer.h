@@ -1,7 +1,6 @@
 #pragma once
 #include "DX11LibraryDefine.h"
 #include "IRenderer.h"
-#include <SpriteFont.h>
 
 class DX11Renderer : public IRenderer
 {
@@ -9,16 +8,15 @@ public:
 	DX11Renderer();
 	~DX11Renderer();
 
-	bool Initialize(int hinst, int hWnd, int screenWidth, int screenHeight);
+	virtual bool Initialize(int hinst, int hWnd, int screenWidth, int screenHeight) override;
 
-	void Update(float deltaTIme);
-	void BeginRender();
-	void EndRender();
-	void Finalize();
+	virtual void BeginRender() override;
+	virtual void EndRender() override;
+	virtual void Finalize() override;
 
 public:
-	void Render();
+	virtual void Render() override;
 
 private:
-	DirectX::SpriteFont* sp;
+	int m_test;
 };
