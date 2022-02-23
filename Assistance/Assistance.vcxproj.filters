@@ -11,6 +11,9 @@
     <Filter Include="DllLoader">
       <UniqueIdentifier>{1f06b9c1-0010-47f2-b32d-6fef68cd5dc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StringHelper">
+      <UniqueIdentifier>{00df8525-64cb-4a1b-863f-8c6addfa8acb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -22,10 +25,16 @@
     <ClInclude Include="DllLoader.h">
       <Filter>DllLoader</Filter>
     </ClInclude>
+    <ClInclude Include="StringHelper.h">
+      <Filter>StringHelper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="StringHelper.cpp">
+      <Filter>StringHelper</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,23 +7,22 @@
 
 RenderWindow::RenderWindow()
 {
-
 }
 
 RenderWindow::~RenderWindow()
 {
-	if (this->handle != NULL)
+	if (this->m_handle != NULL)
 	{
-		UnregisterClass(this->window_class_wide.c_str(), this->hInstance);
-		DestroyWindow(handle);
+		UnregisterClass(this->window_class_wide.c_str(), this->m_hInstance);
+		DestroyWindow(m_handle);
 	}
 }
 
 bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
-	this->hInstance = hInstance;
-	this->width = width;
-	this->height = height;
+	this->m_hInstance = hInstance;
+	this->m_width = width;
+	this->m_height = height;
 	this->window_title = window_title;
 	//this->window_title_wide = StringHelper::StringToWide(this->window_title);
 	this->window_class = window_class;
@@ -31,17 +30,17 @@ bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std
 
 	this->RegisterWindowClass();
 
-	int centerScreenX = GetSystemMetrics(SM_CXSCREEN) / 2 - this->width / 2;
-	int centerScreenY = GetSystemMetrics(SM_CYSCREEN) / 2 - this->height / 2;
+	int centerScreenX = GetSystemMetrics(SM_CXSCREEN) / 2 - this->m_width / 2;
+	int centerScreenY = GetSystemMetrics(SM_CYSCREEN) / 2 - this->m_height / 2;
 
 	RECT wr;
 	wr.left = centerScreenX;
 	wr.top = centerScreenY;
-	wr.right = wr.left + this->width;
-	wr.bottom = wr.top + this->height;
+	wr.right = wr.left + this->m_width;
+	wr.bottom = wr.top + this->m_height;
 	AdjustWindowRect(&wr, WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, FALSE);
 
-	this->handle = CreateWindowEx(0, //Extended Windows style - we are using the default. For other options, see: https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx
+	this->m_handle = CreateWindowEx(0, //Extended Windows style - we are using the default. For other options, see: https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx
 		this->window_class_wide.c_str(), //Window class name
 		this->window_title_wide.c_str(), //Window Title
 		WS_OVERLAPPEDWINDOW,//WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, //Windows style - See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms632600(v=vs.85).aspx
@@ -51,19 +50,19 @@ bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std
 		wr.bottom - wr.top, //Window Height
 		NULL, //Handle to parent of this window. Since this is the first window, it has no parent window.
 		NULL, //Handle to menu or child window identifier. Can be set to NULL and use menu in WindowClassEx if a menu is desired to be used.
-		this->hInstance, //Handle to the instance of module to be used with this window
+		this->m_hInstance, //Handle to the instance of module to be used with this window
 		gameProcess); //Param to create window
 
-	if (this->handle == NULL)
+	if (this->m_handle == NULL)
 	{
 		//ErrorLogger::Log(GetLastError(), "CreateWindowEX Failed for window: " + this->window_title);
 		return false;
 	}
 
 	// Bring the window up on the screen and set it as main focus.
-	ShowWindow(this->handle, SW_SHOW);
-	SetForegroundWindow(this->handle);
-	SetFocus(this->handle);
+	ShowWindow(this->m_handle, SW_SHOW);
+	SetForegroundWindow(this->m_handle);
+	SetFocus(this->m_handle);
 
 	return true;
 }
@@ -79,7 +78,7 @@ bool RenderWindow::ProcessMessages()
 	ZeroMemory(&msg, sizeof(MSG)); // Initialize the message structure.
 
 	while (PeekMessage(&msg, //Where to store message (if one exists) See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
-		this->handle, //Handle to window we are checking messages for
+		this->m_handle, //Handle to window we are checking messages for
 		0,    //Minimum Filter Msg Value - We are not filtering for specific messages, but the min/max could be used to filter only mouse messages for example.
 		0,    //Maximum Filter Msg Value
 		PM_REMOVE))//Remove message after capturing it via PeekMessage. For more argument options, see: https://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
@@ -91,10 +90,10 @@ bool RenderWindow::ProcessMessages()
 	// Check if the window was closed
 	if (msg.message == WM_NULL)
 	{
-		if (!IsWindow(this->handle))
+		if (!IsWindow(this->m_handle))
 		{
-			this->handle = NULL; //Message processing loop takes care of destroying this window
-			UnregisterClass(this->window_class_wide.c_str(), this->hInstance);
+			this->m_handle = NULL; //Message processing loop takes care of destroying this window
+			UnregisterClass(this->window_class_wide.c_str(), this->m_hInstance);
 			return false;
 		}
 	}
@@ -104,7 +103,7 @@ bool RenderWindow::ProcessMessages()
 
 HWND RenderWindow::GetHWND() const
 {
-	return this->handle;
+	return this->m_handle;
 }
 
 LRESULT CALLBACK HandleMsgRedirect(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -155,7 +154,7 @@ void RenderWindow::RegisterWindowClass()
 	wc.lpfnWndProc = HandleMessageSetup; //Pointer to Window Proc function for handling messages from this window
 	wc.cbClsExtra = 0; //# of extra bytes to allocate following the window-class structure. We are not currently using this.
 	wc.cbWndExtra = 0; //# of extra bytes to allocate following the window instance. We are not currently using this.
-	wc.hInstance = this->hInstance; //Handle to the instance that contains the Window Procedure
+	wc.hInstance = this->m_hInstance; //Handle to the instance that contains the Window Procedure
 	wc.hIcon = NULL;   //Handle to the class icon. Must be a handle to an icon resource. We are not currently assigning an icon, so this is null.
 	wc.hIconSm = NULL; //Handle to small icon for this class. We are not currently assigning an icon, so this is null.
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW); //Default Cursor - If we leave this null, we have to explicitly set the cursor's shape each time it enters the window.

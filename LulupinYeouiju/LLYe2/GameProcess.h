@@ -27,13 +27,11 @@ public:
 	void Draw();
 	
 	LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-	std::shared_ptr<IEngineBB> CreateEngine(const wchar_t* dllPath);
 
 private:
-	
-
 	std::shared_ptr<RenderWindow> m_spRenderWindow;
 	std::shared_ptr<IEngineBB> m_spEngineBB;
+	
 	//KeyboardClass* m_Keyboard;
 	//MouseClass* m_Mouse;
 

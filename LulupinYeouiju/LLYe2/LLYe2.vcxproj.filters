@@ -16,6 +16,9 @@
     <Filter Include="pch">
       <UniqueIdentifier>{ab536131-28d4-4f04-8ff7-ef268e80afe8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Define">
+      <UniqueIdentifier>{6d513537-001a-4046-99bf-c2d08cf1acf7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -34,7 +37,7 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="LibraryDefine.h">
-      <Filter>소스 파일</Filter>
+      <Filter>Define</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

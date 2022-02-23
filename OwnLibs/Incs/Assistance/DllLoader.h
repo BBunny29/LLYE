@@ -1,8 +1,6 @@
 #pragma once
 #include "pch.h"
 
-#include <memory>
-
 static HMODULE g_hExecutiveHandle;
 typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
 
