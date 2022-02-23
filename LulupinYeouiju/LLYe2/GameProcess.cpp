@@ -3,8 +3,7 @@
 
 #include "RenderWindow.h"
 #include "IEngineBB.h"
-#include "DLLImporter.h"
-#include <memory>
+#include "DllLoader.h"
 
 GameProcess::GameProcess()
 {
@@ -34,7 +33,19 @@ GameProcess::~GameProcess()
 
 bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
-	m_spEngineBB = CreateEngine(L"../OwnLibs/Libs/EngineBB_x64Debug.dll");
+	#ifdef _WIN64
+		#ifdef _DEBUG
+				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll");
+		#else
+				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"EngineBB_x64Release.dll");
+		#endif
+	#else
+		#ifdef _DEBUG
+				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x86Debug.dll");
+		#else
+				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"EngineBB_x86Release.dll");
+		#endif
+	#endif
 
 	int testnum = 0;
 	testnum = m_spEngineBB->testFunc(3);
@@ -337,39 +348,4 @@ LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LP
 	default:
 		return DefWindowProc(hwnd, uMsg, wParam, lParam);
 	}
-}
-
-static HMODULE g_hExecutiveHandle;
-typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
-
-std::shared_ptr<IEngineBB> GameProcess::CreateEngine(const wchar_t* dllPath)
-{
-	IEngineBB* pExecutive;
-	HRESULT hr;
-
-#ifdef _DEBUG
-	g_hExecutiveHandle = ::LoadLibrary(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll");
-#else
-	g_hExecutiveHandle = ::LoadLibrary(L"DX11_x64Release.dll");
-#endif
-
-	if (g_hExecutiveHandle == 0)
-	{
-		return nullptr;
-	}
-
-	CREATE_INSTANCE_FUNC pFunc;
-	pFunc = (CREATE_INSTANCE_FUNC)::GetProcAddress(g_hExecutiveHandle, "DllCreateInstance");
-
-	hr = pFunc((void**)&pExecutive);
-	if (hr != S_OK)
-	{
-		MessageBox(NULL, L"CreateExecutive() - Executive 생성 실패", L"Error", MB_OK);
-		return FALSE;
-	}
-
-	std::shared_ptr<IEngineBB> _newPtr(pExecutive);
-
-	return _newPtr;
-
 }

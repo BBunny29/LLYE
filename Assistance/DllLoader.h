@@ -1,30 +1,20 @@
 #pragma once
-#include <memory>
+#include "pch.h"
 
-//__interface IEngineBB;
+#include <memory>
 
 static HMODULE g_hExecutiveHandle;
 typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
 
-
-class DLLImporter
+namespace DllLoader
 {
-public:
-	DLLImporter();
-	~DLLImporter();
-
-	//템플릿으로 구현할수 있지 않을까??
-	//template <typename T>
-	std::shared_ptr<int> CreateDLL(const wchar_t* dllPath)
+	template <typename T>
+	std::shared_ptr<T> LoadDll(const wchar_t* dllPath)
 	{
-		int* pExecutive;
+		T* pExecutive;
 		HRESULT hr;
 
-#ifdef _DEBUG
-		g_hExecutiveHandle = ::LoadLibrary(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll");
-#else
-		g_hExecutiveHandle = ::LoadLibrary(L"DX11_x64Release.dll");
-#endif
+		g_hExecutiveHandle = ::LoadLibrary(dllPath);
 
 		if (g_hExecutiveHandle == 0)
 		{
@@ -41,11 +31,8 @@ public:
 			return FALSE;
 		}
 
-		std::shared_ptr<int> _newPtr(pExecutive);
+		std::shared_ptr<T> _newPtr(pExecutive);
 
 		return _newPtr;
 	}
-
-private:
-};
-
+}

@@ -30,7 +30,7 @@ public:
 	std::shared_ptr<IEngineBB> CreateEngine(const wchar_t* dllPath);
 
 private:
-	std::shared_ptr<DLLImporter<T>> m_spDllImporter;
+	
 
 	std::shared_ptr<RenderWindow> m_spRenderWindow;
 	std::shared_ptr<IEngineBB> m_spEngineBB;

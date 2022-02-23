@@ -94,7 +94,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Debugger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -123,7 +123,7 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Debugger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -152,7 +152,7 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Debugger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -182,7 +182,7 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Debugger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>

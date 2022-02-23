@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cc8fd620-7e02-411c-8b59-c8f737b9256e}</ProjectGuid>
-    <RootNamespace>Debugger</RootNamespace>
+    <ProjectGuid>{b2968120-0a0e-486a-b1e1-85876c1f47e8}</ProjectGuid>
+    <RootNamespace>Assistance</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,9 +104,9 @@
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Libs" MD "$(ProjectDir)..\OwnLibs\Libs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
-IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Debugger" MD "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Assistance" MD "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -132,9 +132,9 @@ copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Libs" MD "$(ProjectDir)..\OwnLibs\Libs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
-IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Debugger" MD "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Assistance" MD "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -156,9 +156,9 @@ copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Libs" MD "$(ProjectDir)..\OwnLibs\Libs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
-IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Debugger" MD "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Assistance" MD "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -184,18 +184,18 @@ copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Libs" MD "$(ProjectDir)..\OwnLibs\Libs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
-IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Debugger" MD "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\Assistance" MD "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Debugger"
+copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Assistance"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="DebugString.h" />
+    <ClInclude Include="DllLoader.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DebugString.h" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

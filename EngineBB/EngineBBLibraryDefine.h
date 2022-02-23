@@ -15,17 +15,17 @@
 #endif
 #endif
 
-// Debugger
+// Assistance
 #ifdef _WIN64
 #ifdef _DEBUG
-#pragma comment(lib, "Debugger_x64Debug.lib")
+#pragma comment(lib, "Assistance_x64Debug.lib")
 #else
-#pragma comment(lib, "Debugger_x64Release.lib")
+#pragma comment(lib, "Assistance_x64Release.lib")
 #endif
 #else
 #ifdef _DEBUG
-#pragma comment(lib, "Debugger_x86Debug.lib")
+#pragma comment(lib, "Assistance_x86Debug.lib")
 #else
-#pragma comment(lib, "Debugger_x86Release.lib")
+#pragma comment(lib, "Assistance_x86Release.lib")
 #endif
 #endif

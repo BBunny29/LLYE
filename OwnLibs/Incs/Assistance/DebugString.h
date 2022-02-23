@@ -1,7 +1,7 @@
-﻿#include "pch.h"
+#pragma once
+#include "pch.h"
 
 #include <malloc.h>
-#include <windows.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <debugapi.h>
