@@ -6,9 +6,7 @@
 
 __interface IRenderer;
 
-class Timer;
-class KeyboardClass;
-class MouseClass;
+class DLLImporter;
 
 class EngineBB : public IEngineBB
 {
@@ -16,7 +14,7 @@ public:
 	EngineBB();
 	~EngineBB();
 
-	HRESULT Init();
+	virtual HRESULT Init() override;
 
 	virtual int testFunc(int i) override;
 
@@ -25,7 +23,8 @@ private:
 
 private:
 
-	std::shared_ptr<IRenderer> m_pRenderer;
+	std::shared_ptr<DLLImporter> m_spDLLImporter;
+	std::shared_ptr<IRenderer> m_spDX11Renderer;
 
 	//Timer* m_timer;
 	//KeyboardClass* m_keyboard;

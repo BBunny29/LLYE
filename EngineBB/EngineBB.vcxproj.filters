@@ -20,6 +20,9 @@
     <Filter Include="Define">
       <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DLLImporter">
+      <UniqueIdentifier>{eee226fa-0f88-4c26-874c-ac4ab8626670}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -54,6 +57,9 @@
     <ClInclude Include="EngineBBDllDefine.h">
       <Filter>Define</Filter>
     </ClInclude>
+    <ClInclude Include="DLLImporter.h">
+      <Filter>DLLImporter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -76,5 +82,8 @@
       <Filter>TImer</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="DLLImporter.cpp">
+      <Filter>DLLImporter</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

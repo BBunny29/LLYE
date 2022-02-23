@@ -219,6 +219,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DLLImporter.h" />
     <ClInclude Include="EngineBBDefine.h" />
     <ClInclude Include="EngineBBDllDefine.h" />
     <ClInclude Include="EngineBB.h" />
@@ -233,6 +234,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DLLImporter.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EngineBB.cpp" />
     <ClCompile Include="KeyboardClass.cpp" />

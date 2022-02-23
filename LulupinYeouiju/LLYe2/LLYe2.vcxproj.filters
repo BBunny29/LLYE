@@ -16,6 +16,9 @@
     <Filter Include="pch">
       <UniqueIdentifier>{ab536131-28d4-4f04-8ff7-ef268e80afe8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DLLImporter">
+      <UniqueIdentifier>{b71bbe19-7fcd-4280-b805-0b537eecb513}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -39,6 +42,9 @@
     <ClInclude Include="LibraryDefine.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="DLLImporter.h">
+      <Filter>DLLImporter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -52,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="RenderWindow.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DLLImporter.cpp">
+      <Filter>DLLImporter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

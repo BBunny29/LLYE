@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "EngineBB.h"
 
+#include "DLLImporter.h"
 #include "Timer.h"
 #include "KeyboardClass.h"
 #include "MouseClass.h"
@@ -9,7 +10,7 @@ static HMODULE g_hExecutiveHandle;
 typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
 
 EngineBB::EngineBB()
-	: m_pRenderer(nullptr)
+	: m_spDLLImporter(nullptr)
 {
 }
 
@@ -19,7 +20,8 @@ EngineBB::~EngineBB()
 
 HRESULT EngineBB::Init()
 {
-	//m_pRenderer = CreateRenderer();
+	m_spDLLImporter = std::make_shared<DLLImporter>();
+	m_spDX11Renderer = m_spDLLImporter->CreateRenderer(L"");
 
 	return S_OK;
 }

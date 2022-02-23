@@ -3,7 +3,7 @@
 
 #include "RenderWindow.h"
 #include "IEngineBB.h"
-
+#include "DLLImporter.h"
 #include <memory>
 
 GameProcess::GameProcess()
@@ -38,7 +38,7 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 
 	int testnum = 0;
 	testnum = m_spEngineBB->testFunc(3);
-
+	m_spEngineBB->Init();
 	m_spRenderWindow = std::make_shared<RenderWindow>();
 	//m_Keyboard = new KeyboardClass();
 	//m_Mouse = new MouseClass();
@@ -341,7 +341,6 @@ LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LP
 
 static HMODULE g_hExecutiveHandle;
 typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
-
 
 std::shared_ptr<IEngineBB> GameProcess::CreateEngine(const wchar_t* dllPath)
 {
