@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pch">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{00b567dd-1490-48bb-b08b-dc5faee6f45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Keyboard">
+      <UniqueIdentifier>{4369753a-180d-4251-9b7a-3cf19e0e9cbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mouse">
+      <UniqueIdentifier>{2dce881f-5a3e-4807-b22f-6ea44574929e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TImer">
+      <UniqueIdentifier>{5dd4996f-7700-4ba0-b50e-3412aae3e4ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Define">
+      <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBB.h" />
+    <ClInclude Include="KeyboardClass.h">
+      <Filter>Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardEvent.h">
+      <Filter>Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseClass.h">
+      <Filter>Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseEvent.h">
+      <Filter>Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>TImer</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBBLibraryDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="IEngineBB.h" />
+    <ClInclude Include="EngineBBDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBBDllDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineBB.cpp" />
+    <ClCompile Include="KeyboardClass.cpp">
+      <Filter>Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardEvent.cpp">
+      <Filter>Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseClass.cpp">
+      <Filter>Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseEvent.cpp">
+      <Filter>Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>TImer</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+</Project>
