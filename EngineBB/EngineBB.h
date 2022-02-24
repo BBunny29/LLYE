@@ -12,10 +12,9 @@ public:
 	~EngineBB();
 
 	virtual HRESULT Init() override;
+	virtual HRESULT Init() override;
 
-	virtual int testFunc(int i) override;
-
-
+	
 private:
 	std::shared_ptr<IRenderer> m_spDX11Renderer;
 

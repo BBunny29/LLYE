@@ -1,9 +1,11 @@
 #pragma once
 #include "pch.h"
 
+/// <summary>
+/// 
+/// </summary>
 static HMODULE g_hExecutiveHandle;
 typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);
-
 namespace DllLoader
 {
 	template <typename T>

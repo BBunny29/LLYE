@@ -33,8 +33,3 @@ HRESULT EngineBB::Init()
 
 	return S_OK;
 }
-
-int EngineBB::testFunc(int i)
-{
-	return i + 1;
-}

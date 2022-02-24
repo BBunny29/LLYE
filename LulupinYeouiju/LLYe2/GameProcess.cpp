@@ -50,6 +50,8 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	int testnum = 0;
 	testnum = m_spEngineBB->testFunc(3);
 	m_spEngineBB->Init();
+
+	//m_spEngineBB->GetRenderer()->Initialize();
 	m_spRenderWindow = std::make_shared<RenderWindow>();
 	//m_Keyboard = new KeyboardClass();
 	//m_Mouse = new MouseClass();
