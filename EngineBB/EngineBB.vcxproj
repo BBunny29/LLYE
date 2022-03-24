@@ -95,7 +95,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -128,7 +128,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -161,7 +161,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -194,7 +194,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -222,6 +222,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
     <ClInclude Include="EngineBBDefine.h" />
     <ClInclude Include="EngineBBDllDefine.h" />
     <ClInclude Include="EngineBB.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="IEngineBB.h" />
     <ClInclude Include="KeyboardClass.h" />
     <ClInclude Include="KeyboardEvent.h" />
@@ -230,10 +231,12 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
     <ClInclude Include="MouseEvent.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EngineBB.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="KeyboardClass.cpp" />
     <ClCompile Include="KeyboardEvent.cpp" />
     <ClCompile Include="MouseClass.cpp" />
@@ -245,6 +248,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

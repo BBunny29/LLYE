@@ -11,10 +11,8 @@ public:
 	EngineBB();
 	~EngineBB();
 
-	virtual HRESULT Init() override;
-	virtual HRESULT Init() override;
-
-	
+	virtual HRESULT Init(int hWND, int width, int height) override;
+		
 private:
 	std::shared_ptr<IRenderer> m_spDX11Renderer;
 
