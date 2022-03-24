@@ -6,6 +6,6 @@ __interface IRenderer;
 __interface IEngineBB
 {
 public:
-	virtual HRESULT Init() abstract;
+	virtual HRESULT Init(int hWND, int width, int height) abstract;
 
 };
