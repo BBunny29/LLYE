@@ -2,7 +2,7 @@
 #include "pch.h"
 
 /// <summary>
-/// 
+/// DLL·Î´õ
 /// </summary>
 static HMODULE g_hExecutiveHandle;
 typedef HRESULT(*CREATE_INSTANCE_FUNC)(void** ppv);

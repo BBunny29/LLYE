@@ -2,7 +2,6 @@
 #include <memory>
 #include <string>
 
-
 __interface IEngineBB;
 template<typename T> class DLLImporter;
 
