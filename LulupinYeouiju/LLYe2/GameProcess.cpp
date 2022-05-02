@@ -33,6 +33,7 @@ GameProcess::~GameProcess()
 
 bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
+	/// 엔진 DLL Load
 	#ifdef _WIN64
 		#ifdef _DEBUG
 				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll");
@@ -47,21 +48,24 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 		#endif
 	#endif
 
-	int testnum = 0;
-	testnum = m_spEngineBB->testFunc(3);
-	m_spEngineBB->Init();
-
-	//m_spEngineBB->GetRenderer()->Initialize();
+	/// 엔진 초기화
+	m_spEngineBB->Initialize();
+	
 	m_spRenderWindow = std::make_shared<RenderWindow>();
+	
+	/// 윈도우 창 초기화
+	if (!this->m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
+	{
+		return false;
+	}
+	
+
 	//m_Keyboard = new KeyboardClass();
 	//m_Mouse = new MouseClass();
 	//m_Timer = new Timer();
 
 	//m_Timer->Start();
 
-	/// 윈도우 창 초기화
-	if (!this->m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
-		return false;
 
 	/// 그래픽 초기화
 	//if (!g_Renderer->Initialize(this->m_Render_window->GetHWND(), width, height))

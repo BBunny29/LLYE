@@ -15,7 +15,7 @@ EngineBB::~EngineBB()
 {
 }
 
-HRESULT EngineBB::Init(int hWND, int width, int height)
+HRESULT EngineBB::Initialize(int hWND, int width, int height)
 {
 	#ifdef _WIN64
 	#ifdef _DEBUG
