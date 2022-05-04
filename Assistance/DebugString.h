@@ -26,14 +26,16 @@ namespace Debug
 		// args가 첫번째 가변인수를 가리킬 수 있도록 초기화
 		va_start(args, format);
 
-		len = _vscprintf(format, args) + 1; // _vscprintf는 널문자를 doesn't count '\0'. terminating '\0'
+		len = _vscprintf(format, args) + 1; // _vscprintf는 널문자('\0')를 세지않으므로 +1 해준다.
 
 		buffer = (char*)malloc(len * sizeof(char));
 
 		if (0 != buffer)
 		{
 			vsprintf_s(buffer, len, format, args);
-			puts(buffer);
+			
+			// 콘솔
+			//puts(buffer);
 
 			OutputDebugStringA(buffer);
 			OutputDebugStringA("\n");
