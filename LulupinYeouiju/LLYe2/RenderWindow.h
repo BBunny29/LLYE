@@ -21,10 +21,10 @@ private:
 	HWND m_handle = nullptr;			//Handle to this window
 	HINSTANCE m_hInstance = nullptr;	//Handle to application instance
 	
-	std::string window_title = "";
-	std::wstring window_title_wide = L""; //Wide string representation of window title
-	std::string window_class = "";
-	std::wstring window_class_wide = L""; //Wide string representation of window class name
+	std::string m_window_title = "";
+	std::wstring m_window_title_wide = L""; //Wide string representation of window title
+	std::string m_window_class = "";
+	std::wstring m_window_class_wide = L""; //Wide string representation of window class name
 
 	int m_width = 0;
 	int m_height = 0;

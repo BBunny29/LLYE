@@ -20,11 +20,11 @@ RenderWindow::~RenderWindow()
 
 bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
-	this->m_hInstance = hInstance;
+	m_hInstance = hInstance;
 	
-	this->window_title = window_title;
+	window_title = window_title;
 	//this->window_title_wide = StringHelper::StringToWide(this->window_title);
-	this->window_class = window_class;
+	window_class = window_class;
 	//this->window_class_wide = StringHelper::StringToWide(this->window_class); //wide string representation of class string (used for registering class and creating window)
 	
 	this->m_width = width;
