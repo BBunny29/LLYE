@@ -33,6 +33,14 @@ GameProcess::~GameProcess()
 
 bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
+	/// 윈도우 창 초기화
+	m_spRenderWindow = std::make_shared<RenderWindow>();
+	
+	if (!m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
+	{
+		return false;
+	}
+	
 	/// 엔진 DLL Load
 	#ifdef _WIN64
 		#ifdef _DEBUG
@@ -49,15 +57,9 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	#endif
 
 	/// 엔진 초기화
-	m_spEngineBB->Initialize();
+	m_spEngineBB->Initialize(m_spRenderWindow->GetHWND(), width, height);
 	
-	m_spRenderWindow = std::make_shared<RenderWindow>();
 	
-	/// 윈도우 창 초기화
-	if (!this->m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
-	{
-		return false;
-	}
 	
 
 	//m_Keyboard = new KeyboardClass();

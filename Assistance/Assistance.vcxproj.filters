@@ -5,14 +5,20 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="DebugString">
-      <UniqueIdentifier>{29ad830c-8acc-47d7-8c30-506f81813899}</UniqueIdentifier>
+    <Filter Include="Assistance">
+      <UniqueIdentifier>{b5e16129-caf8-463f-b652-784790614b3d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DllLoader">
+    <Filter Include="Assistance\StringHelper">
+      <UniqueIdentifier>{00df8525-64cb-4a1b-863f-8c6addfa8acb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assistance\DllLoader">
       <UniqueIdentifier>{1f06b9c1-0010-47f2-b32d-6fef68cd5dc9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="StringHelper">
-      <UniqueIdentifier>{00df8525-64cb-4a1b-863f-8c6addfa8acb}</UniqueIdentifier>
+    <Filter Include="Assistance\DebugString">
+      <UniqueIdentifier>{29ad830c-8acc-47d7-8c30-506f81813899}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assistance\ErrorLogger">
+      <UniqueIdentifier>{3f32ac03-98ab-4c79-9ef4-54af0c536f93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -20,13 +26,13 @@
       <Filter>pch</Filter>
     </ClInclude>
     <ClInclude Include="DebugString.h">
-      <Filter>DebugString</Filter>
+      <Filter>Assistance\DebugString</Filter>
     </ClInclude>
     <ClInclude Include="DllLoader.h">
-      <Filter>DllLoader</Filter>
+      <Filter>Assistance\DllLoader</Filter>
     </ClInclude>
     <ClInclude Include="StringHelper.h">
-      <Filter>StringHelper</Filter>
+      <Filter>Assistance\StringHelper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -34,7 +40,7 @@
       <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="StringHelper.cpp">
-      <Filter>StringHelper</Filter>
+      <Filter>Assistance\StringHelper</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
