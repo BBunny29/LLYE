@@ -10,7 +10,7 @@
 
 ### Code Convention
 
-1. initialize bool값 return
+1. initialize bool값 OR HRESULT??
 2. 
 
 
