@@ -2,6 +2,7 @@
 #include <memory>
 #include <string>
 
+
 __interface IEngineBB;
 template<typename T> class DLLImporter;
 
@@ -30,9 +31,6 @@ public:
 private:
 	std::shared_ptr<RenderWindow> m_spRenderWindow;
 	std::shared_ptr<IEngineBB> m_spEngineBB;
-	
-	//KeyboardClass* m_Keyboard;
-	//MouseClass* m_Mouse;
 
 private:
 	int m_CameraNum = 0;

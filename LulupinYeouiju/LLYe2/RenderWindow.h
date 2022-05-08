@@ -3,6 +3,11 @@
 
 class GameProcess;
 
+/// <summary>
+/// RenderWindow
+/// 
+/// 2022. 05. 08 B.BUNNY
+/// </summary>
 class RenderWindow
 {
 public:

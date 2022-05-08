@@ -18,7 +18,7 @@
 // Assistance
 #ifdef _WIN64
 #ifdef _DEBUG
-#pragma comment(lib, "Assistance_x64Debug.lib.lib")
+#pragma comment(lib, "Assistance_x64Debug.lib")
 #else
 #pragma comment(lib, "Assistance_x64Release.lib")
 #endif

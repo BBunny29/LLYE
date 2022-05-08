@@ -191,12 +191,16 @@ copy "$(ProjectDir)*.h" "$(ProjectDir)..\OwnLibs\Incs\Assistance"
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="COMException.h" />
     <ClInclude Include="DebugString.h" />
     <ClInclude Include="DllLoader.h" />
+    <ClInclude Include="ErrorLogger.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="COMException.cpp" />
+    <ClCompile Include="ErrorLogger.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

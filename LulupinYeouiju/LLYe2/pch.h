@@ -19,4 +19,6 @@
 #include <memory.h>
 #include <tchar.h>
 
+#include "LibraryDefine.h"
+
 #endif //PCH_H

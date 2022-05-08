@@ -57,21 +57,11 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	#endif
 
 	/// 엔진 초기화
-	m_spEngineBB->Initialize(m_spRenderWindow->GetHWND(), width, height);
-	
-	
-	
-
-	//m_Keyboard = new KeyboardClass();
-	//m_Mouse = new MouseClass();
-	//m_Timer = new Timer();
-
-	//m_Timer->Start();
-
-
-	/// 그래픽 초기화
-	//if (!g_Renderer->Initialize(this->m_Render_window->GetHWND(), width, height))
+	if (!m_spEngineBB->Initialize((int)m_spRenderWindow->GetHWND(), width, height))
+	{
 		return false;
+	}
+	
 
 	return true;
 }

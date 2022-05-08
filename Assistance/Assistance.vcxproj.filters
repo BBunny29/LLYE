@@ -34,6 +34,12 @@
     <ClInclude Include="StringHelper.h">
       <Filter>Assistance\StringHelper</Filter>
     </ClInclude>
+    <ClInclude Include="ErrorLogger.h">
+      <Filter>Assistance\ErrorLogger</Filter>
+    </ClInclude>
+    <ClInclude Include="COMException.h">
+      <Filter>Assistance\ErrorLogger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -41,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="StringHelper.cpp">
       <Filter>Assistance\StringHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorLogger.cpp">
+      <Filter>Assistance\ErrorLogger</Filter>
+    </ClCompile>
+    <ClCompile Include="COMException.cpp">
+      <Filter>Assistance\ErrorLogger</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
