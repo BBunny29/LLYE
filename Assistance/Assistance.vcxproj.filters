@@ -20,6 +20,9 @@
     <Filter Include="Assistance\ErrorLogger">
       <UniqueIdentifier>{3f32ac03-98ab-4c79-9ef4-54af0c536f93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assistance\FileNameReader">
+      <UniqueIdentifier>{4a51d1ff-5bcc-4879-b0a7-eeb14e449410}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -40,6 +43,9 @@
     <ClInclude Include="COMException.h">
       <Filter>Assistance\ErrorLogger</Filter>
     </ClInclude>
+    <ClInclude Include="FileNameReader.h">
+      <Filter>Assistance\FileNameReader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -53,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="COMException.cpp">
       <Filter>Assistance\ErrorLogger</Filter>
+    </ClCompile>
+    <ClCompile Include="FileNameReader.cpp">
+      <Filter>Assistance\FileNameReader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
