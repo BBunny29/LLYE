@@ -11,10 +11,11 @@
 /// 2021. 12. 02 BB
 /// </summary>
 
-class AdapterData
+class AdapterManager
 {
 public:
-	AdapterData(Microsoft::WRL::ComPtr<IDXGIAdapter> pAdapter);
+	AdapterManager();
+	~AdapterManager();
 
 private:
 	Microsoft::WRL::ComPtr<IDXGIAdapter> m_spAdapter = nullptr;
@@ -24,9 +25,10 @@ private:
 	// 컴퓨터의 하드웨어 및 소프트웨어 기능을 추상화한 것입니다. 
 	// 다른 말로, 하나 이상의 GPU, DAC, 비디오 메모리를 포함하는 디스플레이 서브시스템을 표현합니다
 
+	std::vector<DXGI_MODE_DESC*> m_DXGIMode_V;
+
 	DXGI_ADAPTER_DESC m_description;	// 그래픽카드 정보
 	
-	int i;
 	/*
 	typedef struct DXGI_ADAPTER_DESC
 	{
