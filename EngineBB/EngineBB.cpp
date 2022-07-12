@@ -32,7 +32,7 @@ HRESULT EngineBB::Initialize(int hWND, int width, int height)
 		#endif
 	#endif
 
-	m_spDX11Renderer->Initialize(hWND, hWND, width, height);
+	m_spDX11Renderer->Initialize(hWND, width, height);
 
 	return S_OK;
 }

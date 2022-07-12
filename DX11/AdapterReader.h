@@ -1,34 +1,35 @@
-#pragma once
-#include <vector>
-#include "DX11Define.h"
-//#include <d3d11.h>
-//#include <DXGI.h>
-
-
 /// <summary>
 /// 어댑터(GPU) 정보를 가지고 있는 클래스
 /// ID3D11Device, ID3D11DeviceContext, IDXGISwapChain을 생성하기위해 필요하다
 /// 2021. 12. 02 BB
 /// </summary>
 
-class AdapterManager
+#pragma once
+#include <vector>
+#include "DX11Define.h"
+
+class AdapterData
 {
 public:
-	AdapterManager();
-	~AdapterManager();
+	AdapterData();
+	AdapterData(Microsoft::WRL::ComPtr<IDXGIAdapter> pAdapter);
+	~AdapterData();
+
+	void Initialize(Microsoft::WRL::ComPtr<ID3D11Device> pDevice);
 
 private:
 	Microsoft::WRL::ComPtr<IDXGIAdapter> m_spAdapter = nullptr;
 	Microsoft::WRL::ComPtr<IDXGIOutput> m_spOutput = nullptr;
+	std::vector<DXGI_MODE_DESC*> m_DXGIMode_V;
 	
 	// IDXGIAdapter :
 	// 컴퓨터의 하드웨어 및 소프트웨어 기능을 추상화한 것입니다. 
 	// 다른 말로, 하나 이상의 GPU, DAC, 비디오 메모리를 포함하는 디스플레이 서브시스템을 표현합니다
-
-	std::vector<DXGI_MODE_DESC*> m_DXGIMode_V;
+	
+	Microsoft::WRL::ComPtr<IDXGIFactory2> m_DXGIFactory = nullptr;
 
 	DXGI_ADAPTER_DESC m_description;	// 그래픽카드 정보
-	
+		// 스왑체인을 만들때도 사용되는 팩토리
 	/*
 	typedef struct DXGI_ADAPTER_DESC
 	{
@@ -46,13 +47,13 @@ private:
 
 };
 
-class AdapterReader
-{
-public:
-	static std::vector<AdapterData> GetAdapters();
-
-private:
-	//vector로 받는 이유 : 여러개의 어탭터(GPU)가 있을 수 있기 떄문
-	static std::vector<AdapterData> m_adapter_V;
-};
+//class AdapterReader
+//{
+//public:
+//	static std::vector<AdapterData> GetAdapters();
+//
+//private:
+//	//vector로 받는 이유 : 여러개의 어탭터(GPU)가 있을 수 있기 떄문
+//	static std::vector<AdapterData> m_adapter_V;
+//};
 

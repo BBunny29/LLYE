@@ -1,8 +1,10 @@
 #include "pch.h"
 #include "DX11Renderer.h"
+#include "AdapterReader.h"
 
 DX11Renderer::DX11Renderer()
 	: m_hWnd(nullptr)
+	, m_D3DDriverType(D3D_DRIVER_TYPE_HARDWARE)
 {
 }
 
@@ -30,6 +32,7 @@ bool DX11Renderer::Initialize(int hwnd, int screenWidth, int screenHeight)
 
 	D3D_FEATURE_LEVEL featureLevels[] =
 	{
+		D3D_FEATURE_LEVEL_11_1,
 		D3D_FEATURE_LEVEL_11_0,
 		D3D_FEATURE_LEVEL_10_1,
 		D3D_FEATURE_LEVEL_10_0,
@@ -39,23 +42,26 @@ bool DX11Renderer::Initialize(int hwnd, int screenWidth, int screenHeight)
 	};
 
 	hr = D3D11CreateDevice(
-		nullptr,                 // default adapter
+		nullptr,						// default adapter
 		m_D3DDriverType,
-		nullptr,                 // no software device
+		nullptr,						// no software device
 		createDeviceFlags,
 		featureLevels,
-		ARRAYSIZE(featureLevels),              // default feature level array
+		ARRAYSIZE(featureLevels),       // default feature level array
 		D3D11_SDK_VERSION,
-		&m_spDevice,
+		m_spDevice.GetAddressOf(),
 		&m_eFeatureLevel,
-		&m_spDeviceContext);
+		m_spDeviceContext.GetAddressOf());
 
-	if (m_eFeatureLevel != D3D_FEATURE_LEVEL_11_0)
-	{
-		MessageBox(0, L"Direct3D Feature Level 11 unsupported.", 0, 0);
-		return false;
-	}
+	//if (m_eFeatureLevel != D3D_FEATURE_LEVEL_11_0)
+	//{
+	//	MessageBox(0, L"Direct3D Feature Level 11 unsupported.", 0, 0);
+	//	return false;
+	//}
 
+	m_pAdapterManager = new AdapterData();
+
+	m_pAdapterManager->Initialize(m_spDevice);
 
 	return true;
 }

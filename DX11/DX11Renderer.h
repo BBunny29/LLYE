@@ -18,6 +18,9 @@ public:
 	virtual void Render() override;
 
 private:
+	// 이니셜라이즈용
+
+private:
 	HWND m_hWnd;
 	unsigned int m_width = 0;
 	unsigned int m_height = 0;
@@ -29,6 +32,9 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11Device> m_spDevice;
 	Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_spDeviceContext;
 	
+	class AdapterData* m_pAdapterManager;
+
+
 	///스마트 포인터 : 사용이 끝난 메모리를 자동으로 해제
 	/*	GPU와 GPU의 자원의 virtual representation을 제공.
 		주로 리소스( 버퍼나 텍스쳐 등 )의 생성에 대한 인터페이스 */
