@@ -24,9 +24,15 @@
     <ClCompile Include="FBXParser.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ParsingData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FBXParser.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ParsingData.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

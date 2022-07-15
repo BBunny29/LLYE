@@ -150,9 +150,11 @@
     <ClCompile Include="FBXParser.cpp" />
     <ClCompile Include="FBXParserLibraryDefine.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ParsingData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FBXParser.h" />
+    <ClInclude Include="ParsingData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
