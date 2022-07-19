@@ -2,7 +2,11 @@
 #include <vector>
 #include <memory>
 #include <string>
-namespace JMParserData
+
+#include "SimpleMath.h"
+
+
+namespace ParsingData
 {
 	struct Float2
 	{
@@ -163,17 +167,17 @@ namespace JMParserData
 		Skeleton() {};
 		~Skeleton();
 
-		std::vector<JMParserData::Bone*> m_Bones;
+		std::vector<ParsingData::Bone*> m_Bones;
 		std::vector<DirectX::SimpleMath::Matrix> m_BoneOffsets;
 
-		void AddBone(JMParserData::Bone* bone)
+		void AddBone(ParsingData::Bone* bone)
 		{
 			m_Bones.push_back(bone);
 		}
 
-		JMParserData::Bone* FindBone(const std::string& boneName)
+		ParsingData::Bone* FindBone(const std::string& boneName)
 		{
-			for (JMParserData::Bone* _now : m_Bones)
+			for (ParsingData::Bone* _now : m_Bones)
 			{
 				if (_now->boneName == boneName)
 				{
