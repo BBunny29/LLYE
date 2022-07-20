@@ -1,49 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="FBXParser">
+    <Filter Include="main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ParsingData">
-      <UniqueIdentifier>{8dc2941c-7fec-47ef-9336-ab34432bc127}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Bone">
-      <UniqueIdentifier>{902c2979-d356-40f5-9f17-b50cca493e95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Animation">
-      <UniqueIdentifier>{5dc2b684-6c57-44f2-b31c-d3113e961657}</UniqueIdentifier>
+    <Filter Include="FBXParser">
+      <UniqueIdentifier>{ebfea1cc-8bea-4b92-a4b5-04ae9f84fb0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>FBXParser</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="FBXParserLibraryDefine.cpp">
+    <ClCompile Include="BoneWeights.cpp">
       <Filter>FBXParser</Filter>
     </ClCompile>
     <ClCompile Include="FBXParser.cpp">
       <Filter>FBXParser</Filter>
     </ClCompile>
     <ClCompile Include="ParsingData.cpp">
-      <Filter>ParsingData</Filter>
-    </ClCompile>
-    <ClCompile Include="BoneWeights.cpp">
-      <Filter>Bone</Filter>
+      <Filter>FBXParser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationData.h">
+      <Filter>FBXParser</Filter>
+    </ClInclude>
+    <ClInclude Include="BoneWeights.h">
+      <Filter>FBXParser</Filter>
+    </ClInclude>
     <ClInclude Include="FBXParser.h">
       <Filter>FBXParser</Filter>
     </ClInclude>
+    <ClInclude Include="FBXParserLibraryDefine.h">
+      <Filter>FBXParser</Filter>
+    </ClInclude>
     <ClInclude Include="ParsingData.h">
-      <Filter>ParsingData</Filter>
-    </ClInclude>
-    <ClInclude Include="BoneWeights.h">
-      <Filter>Bone</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationData.h">
-      <Filter>Animation</Filter>
+      <Filter>FBXParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

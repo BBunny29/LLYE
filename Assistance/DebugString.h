@@ -12,8 +12,10 @@
 
 namespace DebugString
 {
-#define PDS(x, ...) PrintDebugString(x, ##__VA_ARGS__)
-#define PDS_LOG PrintDebugString("File : %s ", __FILE__); PrintDebugString("Func : %s ", __FUNCTION__); 
+
+#define PDS(x, ...) Print(x, ##__VA_ARGS__)
+#define PDS_LOG Print("File : %s ", __FILE__); PrintDebugString("Func : %s ", __FUNCTION__); 
+
 
 	inline void Print(char const* const format, ...)
 	{

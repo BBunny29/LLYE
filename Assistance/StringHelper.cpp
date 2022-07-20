@@ -74,7 +74,7 @@ std::string StringHelper::GetFileExtension(const std::string& filename)
 	}
 	return std::string(filename.substr(off + 1));
 }
-
+*/
 
 void StringHelper::ReverseString(std::string& str)
 {
@@ -126,4 +126,3 @@ std::string StringHelper::GetFileName(std::string& name, bool ex)
 		return _result;
 	}
 }
-*/

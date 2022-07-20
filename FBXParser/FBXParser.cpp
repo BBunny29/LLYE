@@ -1,5 +1,11 @@
+#include "pch.h"
 #include "FBXParser.h"
 #include "BoneWeights.h"
+#include "StringHelper.h"
+#include "DebugString.h"
+#include <fbxsdk.h>
+
+#define FBXSDK_SHARED
 
 FBXParser::FBXParser()
 {
@@ -95,15 +101,25 @@ void FBXParser::SceneSetting()
 
 	if (!status)
 	{
-		//CA_TRACE("Call to FbxImporter::Initialize() failed.\n");
-		//CA_TRACE("Error returned: %s\n\n", m_pImporter->GetStatus().GetErrorString());
+		DebugString::PDS("Call to FbxImporter::Initialize() failed.\n");
+		DebugString::PDS("Error returned: %s\n\n", m_pImporter->GetStatus().GetErrorString());
 
 		exit(-1);
 	}
 
 	// 씬 내의 좌표축을 바꾼다. 
-	FbxAxisSystem sceneAxisSystem = m_pScene->GetGlobalSettings().GetAxisSystem();
-	FbxAxisSystem::MayaYUp.ConvertScene(m_pScene);
+	//fbxsdk::FbxAxisSystem sceneAxisSystem = m_pScene->GetGlobalSettings().GetAxisSystem();
+	//fbxsdk::FbxAxisSystem::MayaYUp.ConvertScene(m_pScene);
+
+	fbxsdk::FbxAxisSystem axisSystem(fbxsdk::FbxAxisSystem::eYAxis, fbxsdk::FbxAxisSystem::eParityOdd, fbxsdk::FbxAxisSystem::eRightHanded);
+	fbxsdk::FbxAxisSystem sceneAxisSystem = m_pScene->GetGlobalSettings().GetAxisSystem();
+	if (sceneAxisSystem != axisSystem)
+	{
+		axisSystem.ConvertScene(m_pScene);
+	}
+
+	//fbxsdk::FbxAxisSystem axis = fbxsdk::FbxAxisSystem::MayaYUp;
+	//axis.ConvertScene(m_pScene);
 
 	// 씬 내에서 삼각형화 할 수 있는 모든 노드를 삼각형화 시킨다. 
 	m_pGeometryConverter->Triangulate(m_pScene, true, true);
@@ -201,14 +217,14 @@ void FBXParser::ProcessMesh(fbxsdk::FbxNode* node)
 		m_pMesh->isSkinningObject = true;
 	}
 
-	CreateVertex(m_pFBXmesh, boneWeights, m_pFBXmesh->GetControlPointsCount());
+	//CreateVertex(m_pFBXmesh, boneWeights, m_pFBXmesh->GetControlPointsCount());
 
 	// Bone Data 설정 결과에 따른 Skinning Object 판별..
 	/// 인덱스 정보 저장
-	m_pMesh->meshNumIndex = ProcessMeshVertexIndex();
+	//m_pMesh->meshNumIndex = ProcessMeshVertexIndex();
 
 	/// uv, 노말, 바이노말, 탄젠트값 추가
-	ProcessMeshVertexInfo();
+	//ProcessMeshVertexInfo();
 
 	if (m_pSkeleton != nullptr)
 	{
@@ -216,16 +232,16 @@ void FBXParser::ProcessMesh(fbxsdk::FbxNode* node)
 	}
 
 	/// 버텍스 스플릿
-	SplitMesh2();
+	//SplitMesh2();
 
 	for (int i = 0; i < m_pMesh->meshFace_V.size(); i++)
 	{
-		MakeTangentSpace(m_pFBXmesh, i);
+		//MakeTangentSpace(m_pFBXmesh, i);
 	}
 
 	for (int i = 0; i < m_pMesh->meshFace_V.size(); i++)
 	{
-		MakeBinormal(i);
+		//MakeBinormal(i);
 	}
 
 	/// 버텍스 스플릿후 인덱스 정보 저장
@@ -285,7 +301,6 @@ void FBXParser::ProcessSkeleton(fbxsdk::FbxNode* node)
 	// 최상위 노드(부모노드)인지 확인..
 	int parentBoneIndex = -1;
 	FbxNode* parentNode = node->GetParent();
-
 
 	if (parentNode != nullptr)
 	{
@@ -433,6 +448,127 @@ void FBXParser::SetTransform(fbxsdk::FbxNode* node, ParsingData::Bone* bone)
 	}
 	}
 }
+
+bool FBXParser::ProcessBoneWeights(fbxsdk::FbxNode* node, std::vector<BoneWeights>& meshBoneWeights)
+{
+	int deformerCount = m_pFBXmesh->GetDeformerCount();
+
+	// DeformerCount가 1보다 작으면 Bone Data가 없다고 가정..
+	if (deformerCount < 1) return false;
+
+	// 스켈레톤-본의 size만큼 BoneAnimation을 Resize한다.
+
+
+	for (int i = 0; i < deformerCount; ++i)
+	{
+		// Deform : 변형되다
+		FbxDeformer* deformer = m_pFBXmesh->GetDeformer(i);
+
+		if (deformer == nullptr) continue;
+
+		if (deformer->GetDeformerType() == FbxDeformer::eSkin)
+		{
+			FbxSkin* skin = reinterpret_cast<FbxSkin*>(m_pFBXmesh->GetDeformer(i, FbxDeformer::eSkin));
+
+			if (skin == nullptr) continue;
+
+			// Cluster는 가중치를 가진 메쉬들의 부분집합이다
+			// 스킨 안에 있는 모든 클러스트들의 개수
+			int clusterCount = skin->GetClusterCount();
+
+			FbxCluster::ELinkMode linkMode;
+
+			// Skin Mesh 체크..
+			//JMParserData::Mesh* skinMesh = FindMesh(node->GetName());
+			std::vector<BoneWeights> skinBoneWeights(meshBoneWeights.size());
+			for (int clusterIndex = 0; clusterIndex < clusterCount; clusterIndex++)
+			{
+				FbxCluster* cluster = skin->GetCluster(clusterIndex);
+				if (cluster == nullptr) continue;
+				linkMode = cluster->GetLinkMode();
+
+				FbxNode* pLinkNode = cluster->GetLink();
+				if (pLinkNode == nullptr) continue;
+				std::string _currJointName = pLinkNode->GetName();
+
+				// 현재 joint(본)의 이름을 통해 index를 구해온다
+				int _boneIndex = m_pSkeleton->FindBoneIndex(_currJointName);
+				if (_boneIndex < 0)
+				{
+					continue;
+				}
+
+				// Bone Index에 해당하는 Bone 추출..
+				ParsingData::Bone* _nowBone = m_pSkeleton->m_Bones[_boneIndex];
+
+				FbxAMatrix matClusterTransformMatrix;
+				FbxAMatrix matClusterLinkTransformMatrix;
+
+				cluster->GetTransformMatrix(matClusterTransformMatrix);
+				cluster->GetTransformLinkMatrix(matClusterLinkTransformMatrix);
+
+				// Bone Matrix 설정..
+				DirectX::SimpleMath::Matrix clusterMatrix = ConvertMatrix(matClusterTransformMatrix);
+				DirectX::SimpleMath::Matrix clusterlinkMatrix = ConvertMatrix(matClusterLinkTransformMatrix);
+
+				_nowBone->bindPoseTransform = clusterlinkMatrix;
+				_nowBone->boneReferenceTransform = clusterMatrix;
+
+				// BindPose 행렬을 구하는 공식
+				const FbxVector4 lT = node->GetGeometricTranslation(FbxNode::eDestinationPivot);
+				const FbxVector4 lR = node->GetGeometricRotation(FbxNode::eDestinationPivot);
+				const FbxVector4 lS = node->GetGeometricScaling(FbxNode::eDestinationPivot);
+
+				FbxAMatrix geometryTransform = FbxAMatrix(lT, lR, lS);
+				DirectX::SimpleMath::Matrix geometryMatrix = ConvertMatrix(geometryTransform);
+
+				// OffsetMatrix는 WorldBindPose의 역행렬
+				DirectX::SimpleMath::Matrix offsetMatrix = clusterMatrix * clusterlinkMatrix.Invert() * geometryMatrix;
+
+				m_BoneOffsets[_boneIndex] = offsetMatrix;
+
+
+				// Bone Mesh 체크..
+				// 매트릭스랑 본의 index를 맞춰주기 위한 작업인듯
+
+				for (int j = 0; j < cluster->GetControlPointIndicesCount(); ++j)
+				{
+					int index = cluster->GetControlPointIndices()[j];
+					double weight = cluster->GetControlPointWeights()[j];
+
+					skinBoneWeights[index].AddBoneWeight(_boneIndex, (float)weight);
+				}
+			}
+
+			switch (linkMode)
+			{
+			case FbxCluster::eNormalize:
+			{
+				// 가중치 합을 1.0으로 만드는 작업..
+				for (int i = 0; i < (int)skinBoneWeights.size(); ++i)
+					skinBoneWeights[i].Normalize();
+			}
+			break;
+
+			case FbxCluster::eAdditive:
+				// 가중치가 몇이든 그냥 합산
+				break;
+
+			case FbxCluster::eTotalOne:
+				// 이미 정규화가 되어있는 모드
+				break;
+			}
+
+			for (size_t i = 0; i < meshBoneWeights.size(); i++)
+				meshBoneWeights[i].AddBoneWeights(skinBoneWeights[i]);
+		}
+	}
+
+	return true;
+}
+
+
+
 
 DirectX::SimpleMath::Matrix FBXParser::ConvertMatrix(FbxMatrix fbxMatrix)
 {

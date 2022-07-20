@@ -5,7 +5,6 @@
 
 #include "ParsingData.h"
 
-
 // 파서 바깥으로 내보내지는 구조체
 struct FBXModel
 {
@@ -52,6 +51,7 @@ private:
 	void ProcessMesh(fbxsdk::FbxNode* node);
 	void ProcessSkeleton(fbxsdk::FbxNode* node);
 
+	bool ProcessBoneWeights(fbxsdk::FbxNode* node, std::vector<class BoneWeights>& meshBoneWeights);
 	void SetTransform(fbxsdk::FbxNode* node, ParsingData::Bone* bone);
 
 	DirectX::SimpleMath::Matrix ConvertMatrix(FbxMatrix fbxMatrix);

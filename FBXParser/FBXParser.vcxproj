@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7537d3af-25ac-4075-bdff-cd7447321b7b}</ProjectGuid>
+    <ProjectGuid>{55519221-e781-4583-b8b6-b55edc7f778f}</ProjectGuid>
     <RootNamespace>FBXParser</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,12 +88,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,14 +105,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -120,12 +122,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,27 +139,28 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\ExternalLibs\Libs\DXTK;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BoneWeights.cpp" />
     <ClCompile Include="FBXParser.cpp" />
-    <ClCompile Include="FBXParserLibraryDefine.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="ParsingData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationData.h" />
     <ClInclude Include="BoneWeights.h" />
     <ClInclude Include="FBXParser.h" />
+    <ClInclude Include="FBXParserLibraryDefine.h" />
     <ClInclude Include="ParsingData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
