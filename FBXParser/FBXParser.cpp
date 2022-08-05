@@ -4,6 +4,7 @@
 #include "StringHelper.h"
 #include "DebugString.h"
 #include <fbxsdk.h>
+#include <iostream>
 
 #define FBXSDK_SHARED
 
@@ -101,12 +102,13 @@ void FBXParser::SceneSetting()
 
 	if (!status)
 	{
+		std::cout << "fail" << std::endl;
 		DebugString::PDS("Call to FbxImporter::Initialize() failed.\n");
 		DebugString::PDS("Error returned: %s\n\n", m_pImporter->GetStatus().GetErrorString());
 
 		exit(-1);
 	}
-
+	std::cout << "Not fail" << std::endl;
 	// ¾À ³»ÀÇ ÁÂÇ¥ÃàÀ» ¹Ù²Û´Ù. 
 	//fbxsdk::FbxAxisSystem sceneAxisSystem = m_pScene->GetGlobalSettings().GetAxisSystem();
 	//fbxsdk::FbxAxisSystem::MayaYUp.ConvertScene(m_pScene);
