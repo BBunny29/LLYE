@@ -2,10 +2,10 @@
 #include <comdef.h>
 #include <string>
 
-#define COM_ERROR_IF_FAILED( hr, msg ) if( FAILED( hr ) ) throw COMException( hr, msg, __FILE__, __FUNCTION__, __LINE__ )
+#define COM_ERROR_IF_FAILED( hr, msg ) if (FAILED(hr)) throw COMException(hr, msg, __FILE__, __FUNCTION__, __LINE__)
 
-#define RESOURCE_MISSING( hr, msg ) if( E_FAIL == hr ) throw RESOURCE_MISSING_Exception( msg )
-#define RESOURCE_NULLNAME( hr, msg ) if( E_INVALIDARG == hr ) throw NULLNameException( msg )
+//#define RESOURCE_MISSING( hr, msg ) if( E_FAIL == hr ) throw RESOURCE_MISSING_Exception( msg )
+//#define RESOURCE_NULLNAME( hr, msg ) if( E_INVALIDARG == hr ) throw NULLNameException( msg )
 
 class COMException
 {

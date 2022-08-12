@@ -6,33 +6,53 @@
 #include "EngineBBDllDefine.h"
 #include "IEngineBB.h"
 #include "EngineBB.h"
+#include "EngineBB.h"
 
-BOOL APIENTRY DllMain(HMODULE hModule,            
-                      DWORD  ul_reason_for_call,
-                      LPVOID lpReserved)
+BOOL APIENTRY DllMain(HMODULE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved)
 {
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
-        break;
-    }
-    return TRUE;
+	switch (ul_reason_for_call)
+	{
+	case DLL_PROCESS_ATTACH:
+	case DLL_THREAD_ATTACH:
+	case DLL_THREAD_DETACH:
+	case DLL_PROCESS_DETACH:
+		break;
+	}
+	return TRUE;
 }
 
-extern "C" _EBB_DLL HRESULT DllCreateInstance(void** ppv)
+extern "C" _EBB_DLL HRESULT DllCreateInstanceIEngineBB(void** ppv)
 {
     HRESULT hr;
     IEngineBB* pExecutive = new EngineBB;
+
     if (!pExecutive)
     {
         hr = E_OUTOFMEMORY;
-        goto lb_return;
+        return hr;
     }
+    
     hr = S_OK;
     *ppv = pExecutive;
-lb_return:
+    
     return hr;
 }
+
+//extern "C" _EBB_DLL HRESULT DllCreateInstanceITEst(void** ppv)
+//{
+//    HRESULT hr;
+//    ITest* pExecutive = new Test;
+//
+//    if (!pExecutive)
+//    {
+//        hr = E_OUTOFMEMORY;
+//        return hr;
+//    }
+//
+//    hr = S_OK;
+//    *ppv = pExecutive;
+//
+//    return hr;
+//}

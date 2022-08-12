@@ -11,8 +11,6 @@
 /// 4. 
 /// </summary>
 
-__interface IRenderer;
-
 class EngineBB : public IEngineBB
 {
 public:
@@ -22,7 +20,7 @@ public:
 	virtual HRESULT Initialize(int hWND, int width, int height) override;
 	
 private:
-	std::shared_ptr<IRenderer> m_spDX11Renderer;
+	std::shared_ptr<__interface IRenderer> m_spDX11Renderer;
 
 	//Timer* m_timer;
 	//KeyboardClass* m_keyboard;

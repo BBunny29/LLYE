@@ -2,7 +2,7 @@
 #include "COMException.h"
 
 #include "StringHelper.h"
-//#include "CATrace.h"
+#include "DebugString.h"
 
 COMException::COMException(HRESULT hr, const std::string& msg, const std::string& file, const std::string& function, int line)
 {
@@ -19,14 +19,15 @@ const wchar_t* COMException::what() const
 	return  whatmsg.c_str();
 }
 
-//RESOURCE_MISSING_Exception::RESOURCE_MISSING_Exception(const std::string& msg)
-//{
-//	CA_TRACE(msg.c_str());
-//}
-//
-//NULLNameException::NULLNameException(const std::string& msg)
-//{
-//	CA_TRACE(msg.c_str());
-//}
+RESOURCE_MISSING_Exception::RESOURCE_MISSING_Exception(const std::string& msg)
+{
+	DebugString::PDS(msg.c_str());
+}
+
+NULLNameException::NULLNameException(const std::string& msg)
+{
+	
+	DebugString::PDS(msg.c_str());
+}
 
 

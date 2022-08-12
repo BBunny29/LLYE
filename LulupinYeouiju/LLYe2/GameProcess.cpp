@@ -42,9 +42,10 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	}
 	
 	/// 엔진 DLL Load
+	//로드하기전 경로검사하기
 	#ifdef _WIN64
 		#ifdef _DEBUG
-				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll");
+				DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll", m_spEngineBB);
 		#else
 				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"EngineBB_x64Release.dll");
 		#endif

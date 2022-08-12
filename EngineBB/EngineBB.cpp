@@ -20,7 +20,7 @@ HRESULT EngineBB::Initialize(int hWND, int width, int height)
 {
 	#ifdef _WIN64
 		#ifdef _DEBUG
-			m_spDX11Renderer = DllLoader::LoadDll<IRenderer>(L"../../OwnLibs/Libs/DX11_x64Debug.dll");
+			DllLoader::LoadDll<IRenderer>(L"../../OwnLibs/Libs/DX11_x64Debug.dll", m_spDX11Renderer);
 		#else
 			m_spDX11Renderer = DllLoader::LoadDll<IRenderer>(L"DX11_x64Release.dll");
 		#endif

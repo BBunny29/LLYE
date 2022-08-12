@@ -8,6 +8,9 @@
     <Filter Include="FBXParser">
       <UniqueIdentifier>{ebfea1cc-8bea-4b92-a4b5-04ae9f84fb0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{c243afee-ed34-48f9-ab92-8069c1dcdc90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +24,9 @@
     </ClCompile>
     <ClCompile Include="ParsingData.cpp">
       <Filter>FBXParser</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="ParsingData.h">
       <Filter>FBXParser</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>pch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

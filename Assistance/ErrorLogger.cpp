@@ -5,10 +5,23 @@
 #include "StringHelper.h"
 #include <comdef.h>
 
-void ErrorLogger::Log(std::string message)
+void ErrorLogger::Log(std::string message, ErrorKind eERRORKIND)
 {
-	std::string error_message = "Error: " + message;
-	MessageBoxA(NULL, error_message.c_str(), "Error", MB_ICONERROR);
+	std::string error_type;
+	std::string error_message;
+
+	switch (eERRORKIND)
+	{
+	case ErrorKind::eDEFAULT:
+		error_type = "Error";
+		break;
+	case ErrorKind::ePath:
+		error_type = "Path Error";
+		break;
+	}
+
+	error_message = error_type + " : \n" + message;
+	MessageBoxA(NULL, error_message.c_str(), error_type.c_str(), MB_ICONERROR);
 }
 
 void ErrorLogger::Log(HRESULT hr, std::string message)

@@ -31,6 +31,7 @@ public:
 private:
 	std::shared_ptr<RenderWindow> m_spRenderWindow;
 	std::shared_ptr<IEngineBB> m_spEngineBB;
+	std::shared_ptr<IEngineBB> m_spEngineBB2;
 
 private:
 	int m_CameraNum = 0;

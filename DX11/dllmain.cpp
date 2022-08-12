@@ -20,7 +20,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     return TRUE;
 }
 
-extern "C" _RDX11_DLL HRESULT DllCreateInstance(void** ppv)
+extern "C" _RDX11_DLL HRESULT DllCreateInstanceIRenderer(void** ppv)
 {
     HRESULT hr;
     IRenderer* pExecutive = new DX11Renderer;
