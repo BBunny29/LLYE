@@ -26,6 +26,9 @@
     <Filter Include="Assistance\Pathfinder">
       <UniqueIdentifier>{2ee6516c-c7f0-4f99-a1eb-47a42374513e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assistance\Timer">
+      <UniqueIdentifier>{25e32c8a-7ea2-4852-8f05-7a9bfdf5c80a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -52,6 +55,9 @@
     <ClInclude Include="PathFinder.h">
       <Filter>Assistance\Pathfinder</Filter>
     </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Assistance\Timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -71,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="PathFinder.cpp">
       <Filter>Assistance\Pathfinder</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Assistance\Timer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

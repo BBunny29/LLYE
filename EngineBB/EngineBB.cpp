@@ -2,8 +2,6 @@
 #include "EngineBB.h"
 #include "IRenderer.h"
 
-#include "DllLoader.h"
-
 #include "Timer.h"
 //#include "KeyboardClass.h"
 //#include "MouseClass.h"
@@ -16,23 +14,45 @@ EngineBB::~EngineBB()
 {
 }
 
-HRESULT EngineBB::Initialize(int hWND, int width, int height)
+bool EngineBB::Initialize(int hWND, int width, int height)
 {
+	/// 렌더러 DLL LIB Load
+	std::wstring _dllWPath;
 	#ifdef _WIN64
 		#ifdef _DEBUG
-			DllLoader::LoadDll<IRenderer>(L"../../OwnLibs/Libs/DX11_x64Debug.dll", m_spDX11Renderer);
+			_dllWPath = L"../../OwnLibs/Libs/DX11_x64Debug.dll";
 		#else
-			m_spDX11Renderer = DllLoader::LoadDll<IRenderer>(L"DX11_x64Release.dll");
+			_dllWPath = L"DX11_x64Release.dll";
 		#endif
 	#else
 		#ifdef _DEBUG
-			m_spDX11Renderer = DllLoader::LoadDll<IRenderer>(L"../../OwnLibs/Libs/DX11_x86Debug.dll");
+			_dllWPath = L"../../OwnLibs/Libs/DX11_x86Debug.dll";
 		#else
-			m_spDX11Renderer = DllLoader::LoadDll<IRenderer>(L"DX11_x86Release.dll");
+			_dllWPath = L"DX11_x86Release.dll";
 		#endif
 	#endif
 
-	m_spDX11Renderer->Initialize(hWND, width, height);
+	//로드하기전 경로검사
+	std::string _dllPath = StringHelper::WStringToString(_dllWPath);
+	if (!PathFinder::IsPathExist(_dllPath))
+	{
+		return false;
+	}
 
-	return S_OK;
+	DllLoader::LoadDll<IRenderer>(_dllWPath.c_str(), m_spDX11Renderer);
+	// 널포인터 체크
+	ASSERT_NULLCHECK(m_spDX11Renderer, "DX11Renderer nullptr");
+
+	if (!m_spDX11Renderer->Initialize(hWND, width, height))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+void EngineBB::Finalize()
+{
+	if (m_spDX11Renderer) { m_spDX11Renderer->Finalize(); }
+
 }

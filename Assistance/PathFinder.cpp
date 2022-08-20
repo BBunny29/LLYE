@@ -48,7 +48,7 @@ bool PathFinder::IsPathExist(std::string& path)
 		DebugString::PDS("%s", _curPath.c_str());
 		
 		// 3. 경고창 출력(메세지 박스)
-		ErrorLogger::Log(_curPath, ErrorKind::ePath);
+		ERROR_BOX(_curPath);
 	}
 
 	return _isPathExist;

@@ -1,11 +1,14 @@
 #pragma once
-#include "pch.h"
-
 #include <malloc.h>
 #include <stdarg.h>
-#include <stdio.h>
 #include <debugapi.h>
 
+/// <summary>
+/// 디버깅용 문자 출력(가변인자 사용) 
+/// 출력창에 문자를 찍을수 있다.
+/// 
+/// 2022.08.11 B.Bunny
+/// </summary>
 namespace DebugString
 {
 	// Print함수 재정의
@@ -14,10 +17,7 @@ namespace DebugString
 	#define PDS_LOG Print("File : %s    Func : %s    Line : %d", __FILE__, __FUNCTION__, __LINE__)
 
 	/// <summary>
-	/// 디버깅용 문자 출력(가변인자 사용) 
-	/// 출력창에 문자를 찍을수 있다.
-	/// 
-	/// 2022.08.11 B.Bunny
+	/// 출력창에 문자를 찍는다.
 	/// </summary>
 	inline void Print(char const* const format, ...)
 	{

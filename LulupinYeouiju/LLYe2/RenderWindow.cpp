@@ -5,13 +5,18 @@
 #include "ErrorLogger.h"
 #include "StringHelper.h"
 
+/// ※ 중요 함수 ※
+/// WINAPI : GetLastError()
+// SetLastError() 함수를 통해 에러코드를 발생시키면 GetLastError()를 통해 에러코드를 얻어오는 방식
+// 여기서는 CreateWindowEx()내부에서 SetLastError()함수가 작동된다.
+
 RenderWindow::RenderWindow()
 {
 }
 
 RenderWindow::~RenderWindow()
 {
-	if (this->m_handle != NULL)
+	if (m_handle != nullptr)
 	{
 		UnregisterClass(m_window_class_wide.c_str(), m_hInstance);
 		DestroyWindow(m_handle);
@@ -61,14 +66,14 @@ bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std
 		wr.top, //Window Y Position
 		wr.right - wr.left, //Window Width
 		wr.bottom - wr.top, //Window Height
-		NULL, //Handle to parent of this window. Since this is the first window, it has no parent window.
-		NULL, //Handle to menu or child window identifier. Can be set to NULL and use menu in WindowClassEx if a menu is desired to be used.
+		nullptr, //Handle to parent of this window. Since this is the first window, it has no parent window.
+		nullptr, //Handle to menu or child window identifier. Can be set to NULL and use menu in WindowClassEx if a menu is desired to be used.
 		m_hInstance, //Handle to the instance of module to be used with this window
 		gameProcess); //Param to create window
 
-	if (m_handle == NULL)
+	if (m_handle == nullptr)
 	{
-		ErrorLogger::Log(GetLastError(), "CreateWindowEX Failed for window: " + this->m_window_title);
+		ERROR_BOX_HR(GetLastError(), "CreateWindowEX Failed for window: " + m_window_title);
 		return false;
 	}
 
@@ -105,7 +110,7 @@ bool RenderWindow::ProcessMessages()
 	{
 		if (!IsWindow(m_handle))
 		{
-			m_handle = NULL; //Message processing loop takes care of destroying this window
+			m_handle = nullptr; //Message processing loop takes care of destroying this window
 			UnregisterClass(m_window_class_wide.c_str(), m_hInstance);
 			return false;
 		}
@@ -148,8 +153,8 @@ LRESULT CALLBACK HandleMessageSetup(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 		GameProcess* pWindow = reinterpret_cast<GameProcess*>(pCreate->lpCreateParams);
 		if (pWindow == nullptr) //Sanity check
 		{
-			//ErrorLogger::Log("Critical Error: Pointer to window container is null during WM_NCCREATE.");
-			exit(-1);
+			ERROR_BOX("Critical Error: Pointer to window container is null during WM_NCCREATE.");
+			exit(1);
 		}
 		SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(pWindow));
 		SetWindowLongPtr(hwnd, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(HandleMsgRedirect));

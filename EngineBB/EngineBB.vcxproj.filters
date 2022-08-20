@@ -5,28 +5,34 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Camera">
-      <UniqueIdentifier>{00b567dd-1490-48bb-b08b-dc5faee6f45d}</UniqueIdentifier>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{5784274f-528a-4e5c-a7ec-fa41aacf9790}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TImer">
+    <Filter Include="EngineBB">
+      <UniqueIdentifier>{2fbc47d4-2902-4cef-a9a7-24ec5c27abbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineBB\TImer">
       <UniqueIdentifier>{5dd4996f-7700-4ba0-b50e-3412aae3e4ab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Define">
-      <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Transform">
+    <Filter Include="EngineBB\Transform">
       <UniqueIdentifier>{8d672341-5222-40d1-8569-c999b44a0473}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject">
+    <Filter Include="EngineBB\GameObject">
       <UniqueIdentifier>{46e05460-be2f-4f19-a5e6-d8ae643c19c0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input">
+    <Filter Include="EngineBB\Define">
+      <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineBB\Camera">
+      <UniqueIdentifier>{00b567dd-1490-48bb-b08b-dc5faee6f45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineBB\Input">
       <UniqueIdentifier>{c8e2f740-bc7e-4a4b-9717-67bc75c13a5c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input\Mouse">
+    <Filter Include="EngineBB\Input\Mouse">
       <UniqueIdentifier>{2dce881f-5a3e-4807-b22f-6ea44574929e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input\Keyboard">
+    <Filter Include="EngineBB\Input\Keyboard">
       <UniqueIdentifier>{4369753a-180d-4251-9b7a-3cf19e0e9cbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -34,65 +40,80 @@
     <ClInclude Include="pch.h">
       <Filter>pch</Filter>
     </ClInclude>
-    <ClInclude Include="EngineBB.h" />
     <ClInclude Include="KeyboardClass.h">
-      <Filter>Input\Keyboard</Filter>
+      <Filter>EngineBB\Input\Keyboard</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardEvent.h">
-      <Filter>Input\Keyboard</Filter>
+      <Filter>EngineBB\Input\Keyboard</Filter>
     </ClInclude>
     <ClInclude Include="MouseClass.h">
-      <Filter>Input\Mouse</Filter>
+      <Filter>EngineBB\Input\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="MouseEvent.h">
-      <Filter>Input\Mouse</Filter>
+      <Filter>EngineBB\Input\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>TImer</Filter>
+      <Filter>EngineBB\TImer</Filter>
     </ClInclude>
     <ClInclude Include="EngineBBLibraryDefine.h">
-      <Filter>Define</Filter>
+      <Filter>EngineBB\Define</Filter>
     </ClInclude>
-    <ClInclude Include="IEngineBB.h" />
     <ClInclude Include="EngineBBDefine.h">
-      <Filter>Define</Filter>
+      <Filter>EngineBB\Define</Filter>
     </ClInclude>
     <ClInclude Include="EngineBBDllDefine.h">
-      <Filter>Define</Filter>
+      <Filter>EngineBB\Define</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Transform</Filter>
+      <Filter>EngineBB\Transform</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>GameObject</Filter>
+      <Filter>EngineBB\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="IEngineBB.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBB.h">
+      <Filter>EngineBB</Filter>
+    </ClInclude>
+    <ClInclude Include="ITest.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>EngineBB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>pch</Filter>
     </ClCompile>
-    <ClCompile Include="EngineBB.cpp" />
     <ClCompile Include="KeyboardClass.cpp">
-      <Filter>Input\Keyboard</Filter>
+      <Filter>EngineBB\Input\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="KeyboardEvent.cpp">
-      <Filter>Input\Keyboard</Filter>
+      <Filter>EngineBB\Input\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="MouseClass.cpp">
-      <Filter>Input\Mouse</Filter>
+      <Filter>EngineBB\Input\Mouse</Filter>
     </ClCompile>
     <ClCompile Include="MouseEvent.cpp">
-      <Filter>Input\Mouse</Filter>
+      <Filter>EngineBB\Input\Mouse</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>TImer</Filter>
+      <Filter>EngineBB\TImer</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Transform.cpp">
-      <Filter>Transform</Filter>
+      <Filter>EngineBB\Transform</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>GameObject</Filter>
+      <Filter>EngineBB\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineBB.cpp">
+      <Filter>EngineBB</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>EngineBB</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

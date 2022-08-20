@@ -4,7 +4,16 @@
 
 DX11Renderer::DX11Renderer()
 	: m_hWnd(nullptr)
+	, m_width(0)
+	, m_height(0)
+	
 	, m_D3DDriverType(D3D_DRIVER_TYPE_HARDWARE)
+	, m_eFeatureLevel()
+
+	, m_spDevice(nullptr)
+	, m_spDeviceContext(nullptr)
+
+	, m_pAdapterManager(nullptr)
 {
 }
 
@@ -26,42 +35,50 @@ bool DX11Renderer::Initialize(int hwnd, int screenWidth, int screenHeight)
 
 #endif // DEBUG || _DEBUG
 
-	// Com오브젝트를 초기화(dds 외에 다른 텍스쳐를 사용하려면 써야함)
-	HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
-	//COM_ERROR_IF_FAILED(hr, "COInitialize Fail");
-
-	D3D_FEATURE_LEVEL featureLevels[] =
+	try
 	{
-		D3D_FEATURE_LEVEL_11_1,
-		D3D_FEATURE_LEVEL_11_0,
-		D3D_FEATURE_LEVEL_10_1,
-		D3D_FEATURE_LEVEL_10_0,
-		D3D_FEATURE_LEVEL_9_3,
-		D3D_FEATURE_LEVEL_9_2,
-		D3D_FEATURE_LEVEL_9_1
-	};
+		// Com오브젝트를 초기화(dds 외에 다른 텍스쳐를 사용하려면 써야함)
+		HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+		THROW_COM_ERROR_IF_FAILED(hr, "Fail COInitialize Fail");
 
-	hr = D3D11CreateDevice(
-		nullptr,						// default adapter
-		m_D3DDriverType,
-		nullptr,						// no software device
-		createDeviceFlags,
-		featureLevels,
-		ARRAYSIZE(featureLevels),       // default feature level array
-		D3D11_SDK_VERSION,
-		m_spDevice.GetAddressOf(),
-		&m_eFeatureLevel,
-		m_spDeviceContext.GetAddressOf());
+		D3D_FEATURE_LEVEL featureLevels[] =
+		{
+			D3D_FEATURE_LEVEL_11_0,
+			D3D_FEATURE_LEVEL_10_1,
+			D3D_FEATURE_LEVEL_10_0,
+			D3D_FEATURE_LEVEL_9_3,
+			D3D_FEATURE_LEVEL_9_2,
+			D3D_FEATURE_LEVEL_9_1
+		};
 
-	//if (m_eFeatureLevel != D3D_FEATURE_LEVEL_11_0)
-	//{
-	//	MessageBox(0, L"Direct3D Feature Level 11 unsupported.", 0, 0);
-	//	return false;
-	//}
+		hr = D3D11CreateDevice(
+			nullptr,						// default adapter
+			m_D3DDriverType,
+			nullptr,						// no software device
+			createDeviceFlags,
+			featureLevels,
+			ARRAYSIZE(featureLevels),       // default feature level array
+			D3D11_SDK_VERSION,
+			m_spDevice.GetAddressOf(),
+			&m_eFeatureLevel,
+			m_spDeviceContext.GetAddressOf());
+		THROW_COM_ERROR_IF_FAILED(hr, "Fail CreateDevice Fail");
 
-	m_pAdapterManager = new AdapterData();
+		if (m_eFeatureLevel != D3D_FEATURE_LEVEL_11_0)
+		{
+			MessageBox(0, L"Direct3D Feature Level 11 unsupported.", 0, 0);
+			return false;
+		}
 
-	m_pAdapterManager->Initialize(m_spDevice);
+		m_pAdapterManager = new AdapterData();
+
+		m_pAdapterManager->Initialize(m_spDevice);
+	}
+	catch (COMException& exception)
+	{
+		ErrorLogger::Log(exception);
+		return false;
+	}
 
 	return true;
 }

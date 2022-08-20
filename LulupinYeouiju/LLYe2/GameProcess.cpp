@@ -3,7 +3,11 @@
 
 #include "RenderWindow.h"
 #include "IEngineBB.h"
-#include "DllLoader.h"
+#include "ITest.h"
+
+/// ※ 중요 함수 ※
+/// WINAPI : RegisterRawInputDevices()
+// 윈도우의 이벤트 리시버로 등록하는 기능을 수행
 
 GameProcess::GameProcess()
 {
@@ -12,15 +16,15 @@ GameProcess::GameProcess()
 	{
 		RAWINPUTDEVICE rid;
 
-		rid.usUsagePage = 0x01; //Mouse
-		rid.usUsage = 0x02;
+		rid.usUsagePage = 0x01; 
+		rid.usUsage = 0x02; //Mouse
 		rid.dwFlags = 0;
 		rid.hwndTarget = NULL;
 
 		if (RegisterRawInputDevices(&rid, 1, sizeof(rid)) == FALSE)
 		{
-			//ErrorLogger::Log(GetLastError(), "Failed to register raw input devices.");
-			//exit(-1);
+			ERROR_BOX_HR(GetLastError(), "Failed to register raw input devices.");
+			exit(1);
 		}
 
 		raw_input_initialized = true;
@@ -41,37 +45,48 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 		return false;
 	}
 	
-	/// 엔진 DLL Load
-	//로드하기전 경로검사하기
+	/// 엔진 DLL LIB Load
+	std::wstring _dllWPath;
 	#ifdef _WIN64
 		#ifdef _DEBUG
-				DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x64Debug.dll", m_spEngineBB);
+			_dllWPath = L"../../OwnLibs/Libs/EngineBB_x64Debug.dll";
 		#else
-				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"EngineBB_x64Release.dll");
+			_dllWPath = L"EngineBB_x64Release.dll";
 		#endif
 	#else
 		#ifdef _DEBUG
-				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"../../OwnLibs/Libs/EngineBB_x86Debug.dll");
+			_dllWPath = L"../../OwnLibs/Libs/EngineBB_x86Debug.dll";
 		#else
-				m_spEngineBB = DllLoader::LoadDll<IEngineBB>(L"EngineBB_x86Release.dll");
+			_dllWPath = L"EngineBB_x86Release.dll";
 		#endif
 	#endif
+
+	//로드하기전 경로검사
+	std::string _dllPath = StringHelper::WStringToString(_dllWPath);
+	if (!PathFinder::IsPathExist(_dllPath))
+	{
+		return false;
+	}
+	
+	DllLoader::LoadDll<IEngineBB, ITest>(_dllWPath.c_str(), m_spEngineBB, m_spTest);
+	// 널포인터 체크
+	ASSERT_NULLCHECK(m_spEngineBB, "EngineBB nullptr");
+	ASSERT_NULLCHECK(m_spTest, "Test nullptr");
 
 	/// 엔진 초기화
 	if (!m_spEngineBB->Initialize((int)m_spRenderWindow->GetHWND(), width, height))
 	{
 		return false;
-	}
-	
+	}	
 
 	return true;
 }
 
 void GameProcess::Finalize()
 {
-	//if (g_Renderer) { (g_Renderer)->Destroy(); delete g_Renderer; g_Renderer = 0; }
+	if (m_spRenderWindow) { (m_spRenderWindow)->Finalize(); }
+	if (m_spEngineBB) { m_spEngineBB->Finalize(); }
 
-	//if (m_spRenderWindow) { (m_spRenderWindow)->Destroy(); delete m_spRenderWindow; m_spRenderWindow = 0; }
 	//if (m_Keyboard) { /*(m_Keyboard)->Destroy();*/	delete m_Keyboard; m_Keyboard = 0; }
 	//if (m_Mouse) { /*(m_Mouse)->Destroy();*/		delete m_Mouse; m_Mouse = 0; }
 	//if (m_Timer) { /*(m_Timer)->Destroy();*/		delete m_Timer; m_Timer = 0; }

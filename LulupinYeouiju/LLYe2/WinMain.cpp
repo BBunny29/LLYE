@@ -10,8 +10,6 @@ HINSTANCE p_hInst;                                // 현재 인스턴스입니다.
 WCHAR p_szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR p_szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
-// 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
-
 /// <summary>
 /// 루루팡 여의주의 시작점 Main
 /// 
@@ -25,11 +23,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
-	// 게임 진행 클래스
-	// 내부에서 윈도 생성과 메시지 콜백을 처리한다.
-	// 또한 그래픽스 엔진 등을 포함한다.
 	GameProcess* _pGameProcess = new GameProcess();
-	_pGameProcess->Initialize(hInstance, "LLYE2", "MyWindowClass", 1920, 1080);
+	if (!_pGameProcess->Initialize(hInstance, "LLYE2", "MyWindowClass", 1920, 1080))
+	{
+		return 0;
+	}
 	
 	while (_pGameProcess->ProcessMessages() == true)
 	{

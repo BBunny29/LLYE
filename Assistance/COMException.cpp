@@ -18,16 +18,3 @@ const wchar_t* COMException::what() const
 {
 	return  whatmsg.c_str();
 }
-
-RESOURCE_MISSING_Exception::RESOURCE_MISSING_Exception(const std::string& msg)
-{
-	DebugString::PDS(msg.c_str());
-}
-
-NULLNameException::NULLNameException(const std::string& msg)
-{
-	
-	DebugString::PDS(msg.c_str());
-}
-
-

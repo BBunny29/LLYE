@@ -1,36 +1,33 @@
 #include "pch.h"
 #include "StringHelper.h"
 
-#include "pch.h"
 #include <locale>
-#include "StringHelper.h"
-#include <algorithm>
 
-///// <summary>
-///// std::string 을 wchar_t* 로 바꿔 리턴
-///// 단 만들어서 리턴은 해주지만 해제는 여기서 할 수 없으므로
-///// 호출한 쪽에서 잘 사용하고 반드시 해제해줘야 할 것이다..
-///// (매우 위험해 보이는데?)
-///// </summary>
-///// <param name="str"></param>
-///// <returns></returns>
-//wchar_t* StringHelper::StringToWchar(std::string str)
-//{
-//	// 지역 설정, 안하면 한글이 깨지게 된다..
-//	setlocale(LC_ALL, "Korean"); 
-//
-//	// 사이즈 구하고
-//	const size_t cSize = strlen(str.c_str()) + 1;
-//
-//	// 사이즈만큼 동적할당
-//	wchar_t* text = new wchar_t[cSize];
-//
-//	// std::string 을 wchar_t로 변환해서 text에 넣는다
-//	mbstowcs_s(nullptr, text, cSize, str.c_str(), cSize);
-//
-//	// 호출한쪽에서 사용하고 반드시 delete 해줘야 메모리릭 안날것이다....
-//	return text;
-//}
+/// <summary>
+/// std::string 을 wchar_t* 로 바꿔 리턴
+/// 단 만들어서 리턴은 해주지만 해제는 여기서 할 수 없으므로
+/// 호출한 쪽에서 잘 사용하고 반드시 해제해줘야 할 것이다..
+/// (매우 위험해 보이는데?)
+/// </summary>
+/// <param name="str"></param>
+/// <returns></returns>
+wchar_t* StringHelper::StringToWchar(std::string str)
+{
+	// 지역 설정, 안하면 한글이 깨지게 된다..
+	setlocale(LC_ALL, "Korean");
+
+	// 사이즈 구하고
+	const size_t cSize = strlen(str.c_str()) + 1;
+
+	// 사이즈만큼 동적할당
+	wchar_t* text = new wchar_t[cSize];
+
+	// std::string 을 wchar_t로 변환해서 text에 넣는다
+	mbstowcs_s(nullptr, text, cSize, str.c_str(), cSize);
+
+	// 호출한쪽에서 사용하고 반드시 delete 해줘야 메모리릭 안날것이다....
+	return text;
+}
 
 std::wstring StringHelper::StringToWString(std::string str)
 {
@@ -44,85 +41,51 @@ std::string StringHelper::WStringToString(std::wstring str)
 	return _nowString;
 }
 
-/*
-std::string StringHelper::GetDirectoryFromPath(const std::string& filepath)
+/// <summary>
+/// 경로명에서 파일이름만 반환한다.
+/// 파일이 아닐경우(확장자가 없는경우) 비어있는 string을 반환한다.
+/// ex가 true일 경우 확장자를 붙여준다
+/// </summary>
+/// <param name="path"></param>
+/// <param name="ex"></param>
+/// <returns></returns>
+std::string StringHelper::GetFileName(std::string& path, bool ex)
 {
-	size_t off1 = filepath.find_last_of('\\');
-	size_t off2 = filepath.find_last_of('/');
-	if (off1 == std::string::npos && off2 == std::string::npos) //If no slash or backslash in path?
-	{
-		return "";
-	}
-	if (off1 == std::string::npos)
-	{
-		return filepath.substr(0, off2);
-	}
-	if (off2 == std::string::npos)
-	{
-		return filepath.substr(0, off1);
-	}
-	//If both exists, need to use the greater offset
-	return filepath.substr(0, (off1 > off2) ? off1 : off2);
-}
+	std::string result;
+	std::string extension;
+	size_t sizeOfPath = path.size();
+	size_t extensionSize = 0;
 
-std::string StringHelper::GetFileExtension(const std::string& filename)
-{
-	size_t off = filename.find_last_of('.');
-	if (off == std::string::npos)
+	for (size_t i = sizeOfPath - 1; i > 0; i--)
 	{
-		return {};
-	}
-	return std::string(filename.substr(off + 1));
-}
-*/
-
-void StringHelper::ReverseString(std::string& str)
-{
-	char _temp;
-	for (size_t i = 0; i < str.size() / 2; i++)
-	{
-		_temp = str[i];
-		str[i] = str[(str.size() - 1) - i];
-		str[(str.size() - 1) - i] = _temp;
-	}
-}
-
-std::string StringHelper::GetFileName(std::string& name, bool ex)
-{
-	std::string _result;
-	std::string _extension;
-	size_t _sizeOfPath = name.size();
-
-	for (size_t i = _sizeOfPath - 1; i > 0; i--)
-	{
-		_extension += name.at(i);
-
-		if (name.at(i) == '.')
+		// 확장자명을 자른다.
+		if (path.at(i) == '.')
 		{
-			i--;
-			// 이 함수는 경로를 걸러내는 것이기 때문에
-			// 아래 문자가 등장할때까지 계속해서 진행한다.
-			// i가 0이거나 더 적어질 경우 끝내는 로직도 필요
-			while (!(name.at(i) == '/' || name.at(i) == '\\'))
-			{
-				_result += name.at(i);
-				if (0 >= --i) break;
+			extension = path.substr(i, sizeOfPath - i);
+			extensionSize = sizeOfPath - i;
+		}
 
+		// 파일명을 잘라낸다.
+		if (path.at(i) == '/' || path.at(i) == '\\')
+		{
+			// 확장자가 없으면 파일명이 아님
+			if (extension.size() == 0)
+			{
+				return std::string();
 			}
+
+			result = path.substr(i + 1, sizeOfPath - (i + 1) - extensionSize);
 			break;
 		}
 	}
 
-	ReverseString(_result);
-	ReverseString(_extension);
-
 	if (ex == true)
 	{
-		_result.append(_extension);
-		return _result;
+		result.append(extension);
+		return result;
 	}
 	else
 	{
-		return _result;
+		return result;
 	}
 }

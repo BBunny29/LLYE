@@ -110,7 +110,8 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
+copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -145,7 +146,8 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
+copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -176,7 +178,8 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
+copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -211,7 +214,8 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
+copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -230,6 +234,8 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
     <ClInclude Include="MouseClass.h" />
     <ClInclude Include="MouseEvent.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ITest.h" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
@@ -247,6 +253,7 @@ copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>

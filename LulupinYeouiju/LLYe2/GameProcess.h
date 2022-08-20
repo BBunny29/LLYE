@@ -2,14 +2,11 @@
 #include <memory>
 #include <string>
 
-
-__interface IEngineBB;
-template<typename T> class DLLImporter;
-
-class RenderWindow;
-
 /// <summary>
 /// GameProcess
+/// 게임 진행 클래스
+/// 내부에서 윈도 생성과 메시지 콜백을 처리한다.
+/// 또한 그래픽스 엔진 등을 포함한다.
 /// 
 /// 2021. 08. 14 B.BUNNY
 /// </summary>
@@ -29,9 +26,9 @@ public:
 	LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
-	std::shared_ptr<RenderWindow> m_spRenderWindow;
-	std::shared_ptr<IEngineBB> m_spEngineBB;
-	std::shared_ptr<IEngineBB> m_spEngineBB2;
+	std::shared_ptr<class RenderWindow> m_spRenderWindow;
+	std::shared_ptr<__interface IEngineBB> m_spEngineBB;
+	std::shared_ptr<__interface ITest> m_spTest;
 
 private:
 	int m_CameraNum = 0;

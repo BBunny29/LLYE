@@ -6,7 +6,8 @@
 #include "EngineBBDllDefine.h"
 #include "IEngineBB.h"
 #include "EngineBB.h"
-#include "EngineBB.h"
+#include "ITest.h"
+#include "Test.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule,
 	DWORD  ul_reason_for_call,
@@ -40,19 +41,19 @@ extern "C" _EBB_DLL HRESULT DllCreateInstanceIEngineBB(void** ppv)
     return hr;
 }
 
-//extern "C" _EBB_DLL HRESULT DllCreateInstanceITEst(void** ppv)
-//{
-//    HRESULT hr;
-//    ITest* pExecutive = new Test;
-//
-//    if (!pExecutive)
-//    {
-//        hr = E_OUTOFMEMORY;
-//        return hr;
-//    }
-//
-//    hr = S_OK;
-//    *ppv = pExecutive;
-//
-//    return hr;
-//}
+extern "C" _EBB_DLL HRESULT DllCreateInstanceITest(void** ppv)
+{
+    HRESULT hr;
+    ITest* pExecutive = new Test;
+
+    if (!pExecutive)
+    {
+        hr = E_OUTOFMEMORY;
+        return hr;
+    }
+
+    hr = S_OK;
+    *ppv = pExecutive;
+
+    return hr;
+}
