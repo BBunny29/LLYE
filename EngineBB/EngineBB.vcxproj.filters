@@ -20,9 +20,6 @@
     <Filter Include="EngineBB\GameObject">
       <UniqueIdentifier>{46e05460-be2f-4f19-a5e6-d8ae643c19c0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="EngineBB\Define">
-      <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
-    </Filter>
     <Filter Include="EngineBB\Camera">
       <UniqueIdentifier>{00b567dd-1490-48bb-b08b-dc5faee6f45d}</UniqueIdentifier>
     </Filter>
@@ -34,6 +31,18 @@
     </Filter>
     <Filter Include="EngineBB\Input\Keyboard">
       <UniqueIdentifier>{4369753a-180d-4251-9b7a-3cf19e0e9cbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Imgui">
+      <UniqueIdentifier>{44f5d23f-527c-41ac-b7f5-6411da616b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Singleton">
+      <UniqueIdentifier>{b7c40b38-b602-428c-9f8a-42eefd372ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum">
+      <UniqueIdentifier>{7c355f7c-6c71-4e7e-9ca5-c52f8548f69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Define">
+      <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -56,13 +65,13 @@
       <Filter>EngineBB\TImer</Filter>
     </ClInclude>
     <ClInclude Include="EngineBBLibraryDefine.h">
-      <Filter>EngineBB\Define</Filter>
+      <Filter>Define</Filter>
     </ClInclude>
     <ClInclude Include="EngineBBDefine.h">
-      <Filter>EngineBB\Define</Filter>
+      <Filter>Define</Filter>
     </ClInclude>
     <ClInclude Include="EngineBBDllDefine.h">
-      <Filter>EngineBB\Define</Filter>
+      <Filter>Define</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>EngineBB\Transform</Filter>
@@ -70,17 +79,47 @@
     <ClInclude Include="GameObject.h">
       <Filter>EngineBB\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="IEngineBB.h">
+    <ClInclude Include="Interface_EngineBB.h">
       <Filter>Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="EngineBB.h">
       <Filter>EngineBB</Filter>
     </ClInclude>
-    <ClInclude Include="ITest.h">
-      <Filter>Interfaces</Filter>
+    <ClInclude Include="Imgui\imconfig.h">
+      <Filter>Imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Test.h">
+    <ClInclude Include="Imgui\imgui.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_impl_dx11.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_impl_win32.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_internal.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_rectpack.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_textedit.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_truetype.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="TestOutClass.h">
       <Filter>EngineBB</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum_EngineBB.h">
+      <Filter>Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>EngineBB\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -112,8 +151,29 @@
     <ClCompile Include="EngineBB.cpp">
       <Filter>EngineBB</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
+    <ClCompile Include="Imgui\imgui.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_draw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_impl_dx11.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_impl_win32.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_tables.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_widgets.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="TestOutClass.cpp">
       <Filter>EngineBB</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>EngineBB\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

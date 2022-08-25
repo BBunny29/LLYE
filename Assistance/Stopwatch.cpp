@@ -1,22 +1,22 @@
 #include "pch.h"
-#include "Timer.h"
+#include "Stopwatch.h"
 
-LARGE_INTEGER Timer::m_frequency;
-std::vector < std::tuple <LARGE_INTEGER, LARGE_INTEGER, std::string >> Timer::m_TimeTag_V;
+LARGE_INTEGER Stopwatch::m_frequency;
+std::vector < std::tuple <LARGE_INTEGER, LARGE_INTEGER, std::string >> Stopwatch::m_TimeTag_V;
 
-void Timer::InitTimer()
+void Stopwatch::InitTimer()
 {
 	QueryPerformanceFrequency(&m_frequency);
 }
 
-void Timer::StartMeasure(const std::string& setTag)
+void Stopwatch::StartMeasure(const std::string& setTag)
 {
 	LARGE_INTEGER BeginTime;
 	QueryPerformanceCounter(&BeginTime);
 	m_TimeTag_V.push_back(std::make_tuple(BeginTime, LARGE_INTEGER(), setTag));
 }
 
-void Timer::StopMeasure(const std::string& findTag)
+void Stopwatch::StopMeasure(const std::string& findTag)
 {
 	LARGE_INTEGER endTime;
 	QueryPerformanceCounter(&endTime);
@@ -35,7 +35,7 @@ void Timer::StopMeasure(const std::string& findTag)
 	}
 }
 
-void Timer::PrintResult()
+void Stopwatch::PrintResult()
 {
 	// Ãâ·Â
 	for (int i = 0; i < m_TimeTag_V.size(); ++i)

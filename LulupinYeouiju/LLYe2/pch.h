@@ -1,4 +1,5 @@
 ﻿// LLYe2의 pch.h
+
 #ifndef PCH_H
 #define PCH_H
 
@@ -24,7 +25,7 @@
 #include "PathFinder.h"
 #include "FileNameReader.h"
 #include "StringHelper.h"
-#include "Timer.h"
+#include "Stopwatch.h"
 
 // nullpointer 체크
 #define ASSERT_NULLCHECK(pointer, message)	DebugString::PDS("Null Pointer : %s", message); \

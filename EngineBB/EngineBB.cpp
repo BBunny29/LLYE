@@ -3,8 +3,11 @@
 #include "IRenderer.h"
 
 #include "Timer.h"
-//#include "KeyboardClass.h"
-//#include "MouseClass.h"
+#include "KeyboardClass.h"
+#include "MouseClass.h"
+#include "TestOutClass.h"
+
+#include "imgui_impl_win32.h"
 
 EngineBB::EngineBB()
 {
@@ -48,6 +51,24 @@ bool EngineBB::Initialize(int hWND, int width, int height)
 		return false;
 	}
 
+	Timer::GetInstance()->Reset();
+	Timer::GetInstance()->Start();
+
+	m_spKeyboard = std::make_shared<KeyboardClass>();
+	m_spMouse = std::make_shared<MouseClass>();
+
+	return true;
+}
+
+bool EngineBB::Loop()
+{
+	Timer::GetInstance()->Tick();
+
+	if (Timer::GetInstance()->FixFrame(60.0f) == true)
+	{
+		float a = Timer::GetInstance()->DeltaTime();
+		DebugString::PDS("delta time : %f /ms", a);
+	}
 	return true;
 }
 
@@ -56,3 +77,27 @@ void EngineBB::Finalize()
 	if (m_spDX11Renderer) { m_spDX11Renderer->Finalize(); }
 
 }
+void EngineBB::SetInput(std::shared_ptr<__interface IInput>& _input)
+{
+	m_spInput = _input;
+}
+
+std::shared_ptr<__interface IInput> EngineBB::GetInput()
+{
+	return m_spInput;
+}
+
+
+
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
+LRESULT EngineBB::ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
+}
+
+
+
+
+
+

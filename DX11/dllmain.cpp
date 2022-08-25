@@ -6,8 +6,7 @@
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-                     )
+                       LPVOID lpReserved)
 {
     switch (ul_reason_for_call)
     {
@@ -19,6 +18,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     }
     return TRUE;
 }
+
+/// 인터페이스를 내보내려면 "DllCreateInstance" + "인터페이스 이름" 으로 지을것
 
 extern "C" _RDX11_DLL HRESULT DllCreateInstanceIRenderer(void** ppv)
 {

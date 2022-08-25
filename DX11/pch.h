@@ -7,6 +7,10 @@
 
 #include <windows.h>
 
+/// STL
+#include <vector>
+#include <string>
+
 #include "DX11Define.h"
 #include "DX11dllDefine.h"
 #include "DX11LibraryDefine.h"
@@ -19,7 +23,7 @@
 #include "PathFinder.h"
 #include "FileNameReader.h"
 #include "StringHelper.h"
-#include "Timer.h"
+#include "Stopwatch.h"
 
 // nullpointer 체크
 #define ASSERT_NULLCHECK(pointer, message)	DebugString::PDS("Null Pointer : %s", message); \

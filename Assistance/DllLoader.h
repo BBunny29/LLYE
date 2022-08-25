@@ -54,6 +54,10 @@ private:
 		if (_InterfaceName.substr(0, 7) == "struct ")
 		{
 			_InterfaceName.erase(0, 7);
+		}	
+		else if (_InterfaceName.substr(0, 6) == "class ")
+		{
+			_InterfaceName.erase(0, 6);
 		}
 
 		// 인터페이스 포인터를 반환하는함수명 + 인터페이스 이름을 붙인다.(별로 맘에 안듦;;)

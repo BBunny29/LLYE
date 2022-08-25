@@ -4,14 +4,14 @@
 // DLL이 프로세스별 또는 쓰레드별로 초기화를 수행하거나 정리할 목적으로 호출되기도 한다.
 #include "pch.h"
 #include "EngineBBDllDefine.h"
-#include "IEngineBB.h"
+#include "Interface_EngineBB.h"
 #include "EngineBB.h"
-#include "ITest.h"
-#include "Test.h"
+#include "TestOutClass.h"
 
-BOOL APIENTRY DllMain(HMODULE hModule,
-	DWORD  ul_reason_for_call,
-	LPVOID lpReserved)
+
+BOOL APIENTRY DllMain(  HMODULE hModule,
+	                    DWORD  ul_reason_for_call,
+	                    LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
 	{
@@ -23,6 +23,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	}
 	return TRUE;
 }
+
+/// 인터페이스를 내보내려면 "DllCreateInstance" + "인터페이스 이름" 으로 지을것
 
 extern "C" _EBB_DLL HRESULT DllCreateInstanceIEngineBB(void** ppv)
 {
@@ -41,10 +43,10 @@ extern "C" _EBB_DLL HRESULT DllCreateInstanceIEngineBB(void** ppv)
     return hr;
 }
 
-extern "C" _EBB_DLL HRESULT DllCreateInstanceITest(void** ppv)
+extern "C" _EBB_DLL HRESULT DllCreateInstanceITestOutClass(void** ppv)
 {
     HRESULT hr;
-    ITest* pExecutive = new Test;
+    ITestOutClass* pExecutive = new TestOutClass;
 
     if (!pExecutive)
     {

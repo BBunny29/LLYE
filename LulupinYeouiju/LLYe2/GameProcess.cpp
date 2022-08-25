@@ -2,8 +2,8 @@
 #include "GameProcess.h"
 
 #include "RenderWindow.h"
+#include "TestOutClass.h"
 #include "IEngineBB.h"
-#include "ITest.h"
 
 /// ※ 중요 함수 ※
 /// WINAPI : RegisterRawInputDevices()
@@ -37,14 +37,6 @@ GameProcess::~GameProcess()
 
 bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
-	/// 윈도우 창 초기화
-	m_spRenderWindow = std::make_shared<RenderWindow>();
-	
-	if (!m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
-	{
-		return false;
-	}
-	
 	/// 엔진 DLL LIB Load
 	std::wstring _dllWPath;
 	#ifdef _WIN64
@@ -67,18 +59,43 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	{
 		return false;
 	}
-	
-	DllLoader::LoadDll<IEngineBB, ITest>(_dllWPath.c_str(), m_spEngineBB, m_spTest);
-	// 널포인터 체크
-	ASSERT_NULLCHECK(m_spEngineBB, "EngineBB nullptr");
-	ASSERT_NULLCHECK(m_spTest, "Test nullptr");
 
+	std::shared_ptr<__interface ITestOutClass> spTestOutClass = nullptr;
+
+	//DllLoader::LoadDll<IEngineBB>(_dllWPath.c_str(), m_spEngineBB);
+	DllLoader::LoadDll<IEngineBB, ITestOutClass>(_dllWPath.c_str(), m_spEngineBB, spTestOutClass);
+	ASSERT_NULLCHECK(m_spEngineBB, "m_spEngineBB nullptr");
+	//ASSERT_NULLCHECK(m_spTestOutClass, "m_spTestOutClass nullptr");
+
+	/// 윈도우 창 초기화
+	m_spRenderWindow = std::make_shared<RenderWindow>();
+	
+	if (!m_spRenderWindow->Initialize(this, hInstance, window_title, window_class, width, height))
+	{
+		return false;
+	}
+	
 	/// 엔진 초기화
 	if (!m_spEngineBB->Initialize((int)m_spRenderWindow->GetHWND(), width, height))
 	{
 		return false;
 	}	
 
+	m_spEngineBB->SetKeyInput(spTestOutClass);
+	
+	
+	m_spEngineBB->GetKeyInput('a')->FuncA();
+	
+	
+	//m_spTestOutClass->FuncA();
+	//m_spTestOutClass = m_spEngineBB->GetKeyInput('a');
+	//int a = m_spTestOutClass->a;
+	//m_spTestOutClass->a = 10;
+
+	//m_spEngineBB->GetKeyInput('a')->FuncA();
+	//m_spTestOutClass->FuncA();
+	//int aa = m_spTestOutClass->a;
+	
 	return true;
 }
 
@@ -99,6 +116,8 @@ bool GameProcess::ProcessMessages()
 
 void GameProcess::Update()
 {
+	m_spEngineBB->Loop();
+
 //	float deltaTime = m_Timer->GetMilisecondesElapsed();
 //	m_Timer->Restart();
 //
@@ -216,28 +235,37 @@ void GameProcess::Update()
 //	m_Keyboard->SetCurrentBeforeKey();
 }
 
-
-void GameProcess::Draw()
-{
-	//g_Renderer->BeginDrawTest();
-	//SceneManager::GetInstance()->Draw();
-	//g_Renderer->EndDraw();
-}
-
 //ImGui를 위한 핸들
-//extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+
+//#ifdef _DEBUG
+//
+//	if (DLLEngine::ImGuiHandler(hWnd, message, wParam, lParam))
+//	{
+//		return true;
+//
+//	}
+//#else
+//	if (DLLEngine::ImGuiHandler(hWnd, message, wParam, lParam))
+//	{
+//		return true;
+//	}
+//#endif // DEBUG
+
 	//if (ImGui_ImplWin32_WndProcHandler(hwnd, uMsg, wParam, lParam))
 		//return true;
 
 	switch (uMsg)
 	{
-		//Keyboard Messages
+	//Keyboard Messages
 	case WM_KEYDOWN:
 	{
 		unsigned char keycode = static_cast<unsigned char>(wParam);
+		
+		//m_spEngineBB->GetKeyInput()->
 		//if (m_Keyboard->IsKeysAutoRepeat())
 		//{
 		//	m_Keyboard->OnKeyPressed(keycode);
@@ -250,7 +278,7 @@ LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LP
 		//		m_Keyboard->OnKeyPressed(keycode);
 		//	}
 		//}
-		return 0;
+		//return 0;
 	}
 	case WM_KEYUP:
 	{
@@ -341,7 +369,7 @@ LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LP
 	}
 	case WM_INPUT:
 	{
-		UINT dataSize;
+		UINT dataSize = 0;
 		GetRawInputData(reinterpret_cast<HRAWINPUT>(lParam), RID_INPUT, NULL, &dataSize, sizeof(RAWINPUTHEADER)); //Need to populate data size first
 
 		if (dataSize > 0)

@@ -18,12 +18,14 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{134c2db8-8e43-4efa-9978-301bb1534190}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>pch</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderer.h" />
     <ClInclude Include="DX11Renderer.h">
       <Filter>DX11Renderer</Filter>
     </ClInclude>
@@ -41,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="DX11DllDefine.h">
       <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

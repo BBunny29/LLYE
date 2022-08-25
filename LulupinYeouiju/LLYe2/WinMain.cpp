@@ -32,7 +32,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	while (_pGameProcess->ProcessMessages() == true)
 	{
 		_pGameProcess->Update();
-		_pGameProcess->Draw();
 	}
 	
 	_pGameProcess->Finalize();

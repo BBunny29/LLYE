@@ -32,11 +32,11 @@ int main()
 	std::string c = StringHelper::GetFileName(a, false);
 
 	// Timer
-	Timer::InitTimer();
+	Stopwatch::InitTimer();
 
 	for (int i = 0; i < 100; i++)
 	{
-		Timer::StartMeasure(std::to_string(i));
+		Stopwatch::StartMeasure(std::to_string(i));
 	}
 
 	for (int i = 0; i < 10000000; i++)
@@ -45,10 +45,10 @@ int main()
 
 	for (int i = 0; i < 100; i++)
 	{
-		Timer::StopMeasure(std::to_string(i));
+		Stopwatch::StopMeasure(std::to_string(i));
 	}
 
-	Timer::PrintResult();
+	Stopwatch::PrintResult();
 
 	// DebugString
 	std::string _sa = "디버깅 스트링 테스트";

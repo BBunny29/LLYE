@@ -95,7 +95,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -110,8 +110,7 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
-copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -129,7 +128,7 @@ copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -146,8 +145,7 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
-copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -163,7 +161,7 @@ copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -178,8 +176,7 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
-copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -197,7 +194,7 @@ copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -214,8 +211,7 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs" MD "$(ProjectDir)..\OwnLibs\Incs"
 IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\EngineBB" MD "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
-copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"
-copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
+copy "$(ProjectDir)IEngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -226,16 +222,26 @@ copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     <ClInclude Include="EngineBBDefine.h" />
     <ClInclude Include="EngineBBDllDefine.h" />
     <ClInclude Include="EngineBB.h" />
+    <ClInclude Include="Enum_EngineBB.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="IEngineBB.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Interface_EngineBB.h" />
+    <ClInclude Include="Imgui\imconfig.h" />
+    <ClInclude Include="Imgui\imgui.h" />
+    <ClInclude Include="Imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="Imgui\imgui_impl_win32.h" />
+    <ClInclude Include="Imgui\imgui_internal.h" />
+    <ClInclude Include="Imgui\imstb_rectpack.h" />
+    <ClInclude Include="Imgui\imstb_textedit.h" />
+    <ClInclude Include="Imgui\imstb_truetype.h" />
     <ClInclude Include="KeyboardClass.h" />
     <ClInclude Include="KeyboardEvent.h" />
     <ClInclude Include="EngineBBLibraryDefine.h" />
     <ClInclude Include="MouseClass.h" />
     <ClInclude Include="MouseEvent.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="ITest.h" />
-    <ClInclude Include="Test.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="TestOutClass.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
@@ -243,6 +249,13 @@ copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EngineBB.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Imgui\imgui.cpp" />
+    <ClCompile Include="Imgui\imgui_draw.cpp" />
+    <ClCompile Include="Imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Imgui\imgui_tables.cpp" />
+    <ClCompile Include="Imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="KeyboardClass.cpp" />
     <ClCompile Include="KeyboardEvent.cpp" />
     <ClCompile Include="MouseClass.cpp" />
@@ -253,7 +266,7 @@ copy "$(ProjectDir)ITest.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TestOutClass.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>

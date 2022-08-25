@@ -1,6 +1,7 @@
 #pragma once
 #include <windows.h>
 #include <ctime>
+#include <string>
 #include <vector>
 #include <tuple>
 
@@ -22,7 +23,7 @@
 //
 /// => ((2 - 1) / 3) * 1000  = 1과 2사이의 걸린시간(/ms = 1/1000초)
 
-class Timer
+class Stopwatch
 {
 	enum class TimerComp
 	{
