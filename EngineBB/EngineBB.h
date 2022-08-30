@@ -24,16 +24,14 @@ public:
 	virtual void SetInput(std::shared_ptr<__interface IInput>& _input) override;
 	virtual std::shared_ptr<__interface IInput> GetInput() override;
 
-
 	/// Imgui 핸들 셋팅
 	virtual LRESULT ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) override;
-	
+
+private:
+	void RenderAll();
+
 private:
 	std::shared_ptr<__interface IRenderer> m_spDX11Renderer;
-
-	std::shared_ptr<class KeyboardClass> m_spKeyboard;
-	std::shared_ptr<class MouseClass> m_spMouse;
-
 	std::shared_ptr<__interface IInput> m_spInput;
 
 };

@@ -49,16 +49,10 @@
     <ClInclude Include="pch.h">
       <Filter>pch</Filter>
     </ClInclude>
-    <ClInclude Include="KeyboardClass.h">
+    <ClInclude Include="Keyboard.h">
       <Filter>EngineBB\Input\Keyboard</Filter>
     </ClInclude>
-    <ClInclude Include="KeyboardEvent.h">
-      <Filter>EngineBB\Input\Keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="MouseClass.h">
-      <Filter>EngineBB\Input\Mouse</Filter>
-    </ClInclude>
-    <ClInclude Include="MouseEvent.h">
+    <ClInclude Include="Mouse.h">
       <Filter>EngineBB\Input\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
@@ -112,9 +106,6 @@
     <ClInclude Include="Singleton.h">
       <Filter>Singleton</Filter>
     </ClInclude>
-    <ClInclude Include="TestOutClass.h">
-      <Filter>EngineBB</Filter>
-    </ClInclude>
     <ClInclude Include="Enum_EngineBB.h">
       <Filter>Enum</Filter>
     </ClInclude>
@@ -126,16 +117,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>pch</Filter>
     </ClCompile>
-    <ClCompile Include="KeyboardClass.cpp">
+    <ClCompile Include="Keyboard.cpp">
       <Filter>EngineBB\Input\Keyboard</Filter>
     </ClCompile>
-    <ClCompile Include="KeyboardEvent.cpp">
-      <Filter>EngineBB\Input\Keyboard</Filter>
-    </ClCompile>
-    <ClCompile Include="MouseClass.cpp">
-      <Filter>EngineBB\Input\Mouse</Filter>
-    </ClCompile>
-    <ClCompile Include="MouseEvent.cpp">
+    <ClCompile Include="Mouse.cpp">
       <Filter>EngineBB\Input\Mouse</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
@@ -168,9 +153,6 @@
     </ClCompile>
     <ClCompile Include="Imgui\imgui_widgets.cpp">
       <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="TestOutClass.cpp">
-      <Filter>EngineBB</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>EngineBB\Input</Filter>

@@ -3,9 +3,7 @@
 #include "IRenderer.h"
 
 #include "Timer.h"
-#include "KeyboardClass.h"
-#include "MouseClass.h"
-#include "TestOutClass.h"
+
 
 #include "imgui_impl_win32.h"
 
@@ -35,7 +33,7 @@ bool EngineBB::Initialize(int hWND, int width, int height)
 		#endif
 	#endif
 
-	//로드하기전 경로검사
+	// 로드하기전 경로검사
 	std::string _dllPath = StringHelper::WStringToString(_dllWPath);
 	if (!PathFinder::IsPathExist(_dllPath))
 	{
@@ -54,9 +52,6 @@ bool EngineBB::Initialize(int hWND, int width, int height)
 	Timer::GetInstance()->Reset();
 	Timer::GetInstance()->Start();
 
-	m_spKeyboard = std::make_shared<KeyboardClass>();
-	m_spMouse = std::make_shared<MouseClass>();
-
 	return true;
 }
 
@@ -67,7 +62,18 @@ bool EngineBB::Loop()
 	if (Timer::GetInstance()->FixFrame(60.0f) == true)
 	{
 		float a = Timer::GetInstance()->DeltaTime();
-		DebugString::PDS("delta time : %f /ms", a);
+		unsigned char bb = static_cast<unsigned char>(eKey::KEY_A);
+		bool b = m_spInput->IsKeyUp(bb); 
+		if (b == true)
+		{
+			DebugString::PDS("input a press? : %d", b);
+		}
+		
+
+		RenderAll();
+
+		// 가장 나중에 키입력 업데이트를 한다.
+		m_spInput->Update();
 	}
 	return true;
 }
@@ -87,13 +93,16 @@ std::shared_ptr<__interface IInput> EngineBB::GetInput()
 	return m_spInput;
 }
 
-
-
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LRESULT EngineBB::ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
+}
+
+void EngineBB::RenderAll()
+{
+
 }
 
 

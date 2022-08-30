@@ -3,82 +3,56 @@
 #include <tuple>
 #include "Interface_EngineBB.h"
 
-class KeyboardEvent;
-// 이벤트 tuple로 만들거다
-std::tuple<eKeyboardEvnet, unsigned char> keyboardEvent;
-
-class MouseEvent;
-// 얘는 enum으로만 받을거다
-
-
+/// <summary>
+/// Input(키보드/마우스)를 관리하는 클래스
+/// 
+/// 2022.08.27 B.Bunny
+/// </summary>
 class Input : public IInput
 {
 public:
 	Input();
 	~Input();
 
-	/// 키보드
-	bool KeyIsPressed(const unsigned char keycode);			// 연속적 입력받을시
-	bool KeyIsPressedFirst(const unsigned char keycode);	// 처음 입력받았을시
-	bool KeyIsReleased(const unsigned char keycode);		// 입력을 뗄시
+	virtual bool Initialize() override;
+	virtual void Finalize() override;
+	
+	// 이전 키상태 갱신(엔진의 Update안에서 가장나중에 불려야 한다)
+	virtual void Update() override;
 
-	bool KeyBufferIsEmpty();
-	bool CharBufferIsEmpty();
-	KeyboardEvent* ReadKey();
-	unsigned char ReadChar();
-	void OnKeyPressed(const unsigned char key);
-	void OnKeyReleased(const unsigned char key);
+	// 입력받기
+	virtual void SetKeyboardState(eInput upDown, unsigned char keycode) override;
+	virtual void SetMousePos(POINT mousePos) override;
+	virtual void SetMouseRowPos(POINT mouseRowPos) override;
+	virtual void SetMouseState(eInput upDown, eMouseButtonType mouseType, POINT clickPoint) override;
+	virtual void SetMouseWheelState(eInput upDown, POINT clickPoint) override;
 
-	void SetCurrentBeforeKey();
+	// 키보드 입력 확인
+	virtual bool IsKeyDown(unsigned char keycode) override;
+	virtual bool IsKeyPress(unsigned char keycode) override;
+	virtual bool IsKeyUp(unsigned char keycode) override;
+	virtual bool IsKeyRelease(unsigned char keycode) override;
 
-	void OnChar(const unsigned char key);
-	void EnableAutoRepeatKeys();
-	void DisableAutoRepeatKeys();
-	void EnableAutoRepeatChars();
-	void DisableAutoRepeatChars();
-	bool IsKeysAutoRepeat();
-	bool IsCharsAutoRepeat();
+	// 마우스 위치(실시간)
+	virtual POINT GetMousePos() override;
+	virtual POINT GetMouseRowPos() override;
 
-private:
-	bool autoRepeatKeys = false;
-	bool autoRepeatChars = false;
-	bool keyStates[256];			//현재 키입력 상태
-	bool keyStatesBefore[256];		//방금 전의 키입력 상태
-	std::queue<std::tuple<eKeyboardEvnet, unsigned char>> keyBuffer;
-	std::queue<unsigned char> charBuffer;
+	// 마우스 클릭 위치
+	virtual POINT GetClickDownPos() override;
+	virtual POINT GetClickUpPos() override;
 
-	/// 마우스
-public:
-	void OnLeftPressed(int x, int y);
-	void OnLeftReleased(int x, int y);
-	void OnRightPressed(int x, int y);
-	void OnRightReleased(int x, int y);
-	void OnMiddlePressed(int x, int y);
-	void OnMiddleReleased(int x, int y);
-	void OnWheelUp(int x, int y);
-	void OnWheelDown(int x, int y);
-	void OnMouseMove(int x, int y);
-	void OnMouseMoveRaw(int x, int y);
-
-
-	bool IsLeftDown();
-	bool IsMiddleDown();
-	bool IsRightDown();
-
-	int GetPosX();
-	int GetPosY();
-	POINT GetPos();
-
-	bool EventBufferIsEmpty();
-	MouseEvent ReadEvent();
+	// 마우스 입력 확인
+	virtual bool IsDown(eMouseButtonType mouseType) override;
+	virtual bool IsPress(eMouseButtonType mouseType) override;
+	virtual bool IsUp(eMouseButtonType mouseType) override;
+	virtual bool IsRelease(eMouseButtonType mouseType) override;
+	
+	// 마우스 휠
+	virtual bool IsWheelUp() override;
+	virtual bool IsWheelDown() override;
 
 private:
-	std::queue<MouseEvent> eventBuffer;
-	bool leftIsDown = false;
-	bool rightIsDown = false;
-	bool mbuttonDown = false;
-	POINT m_mousePos;
-	int x = 0;
-	int y = 0;
+	std::shared_ptr<class Keyboard> m_spKeyboard;
+	std::shared_ptr<class Mouse> m_spMouse;
 };
 

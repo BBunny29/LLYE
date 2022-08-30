@@ -6,8 +6,7 @@
 #include "EngineBBDllDefine.h"
 #include "Interface_EngineBB.h"
 #include "EngineBB.h"
-#include "TestOutClass.h"
-
+#include "Input.h"
 
 BOOL APIENTRY DllMain(  HMODULE hModule,
 	                    DWORD  ul_reason_for_call,
@@ -43,10 +42,10 @@ extern "C" _EBB_DLL HRESULT DllCreateInstanceIEngineBB(void** ppv)
     return hr;
 }
 
-extern "C" _EBB_DLL HRESULT DllCreateInstanceITestOutClass(void** ppv)
+extern "C" _EBB_DLL HRESULT DllCreateInstanceIInput(void** ppv)
 {
     HRESULT hr;
-    ITestOutClass* pExecutive = new TestOutClass;
+    IInput* pExecutive = new Input;
 
     if (!pExecutive)
     {

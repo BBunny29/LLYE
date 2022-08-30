@@ -57,7 +57,7 @@ float Timer::TotalTime()const
 
 float Timer::DeltaTime() const
 {
-    DebugString::PDS("%f", (float)m_Dtime);
+    //DebugString::PDS("%f", (float)m_Dtime);
 
     return (float)m_Dtime;
 }

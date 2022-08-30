@@ -28,8 +28,6 @@ private:
 	std::shared_ptr<class RenderWindow> m_spRenderWindow;
 	std::shared_ptr<__interface IEngineBB> m_spEngineBB;
 
-	std::shared_ptr<__interface ITestOutClass> m_spTestOutClass;
-
 private:
 	int m_CameraNum = 0;
 };
