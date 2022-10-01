@@ -11,8 +11,9 @@
 #include <vector>
 #include <string>
 
+/// Define 헤더
 #include "DX11Define.h"
-#include "DX11dllDefine.h"
+#include "DX11DllDefine.h"
 #include "DX11LibraryDefine.h"
 
 /// Assist Lib 헤더

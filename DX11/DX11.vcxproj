@@ -204,26 +204,48 @@ copy "$(ProjectDir)IRenderer.h" "$(ProjectDir)..\OwnLibs\Incs\DX11"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AdapterReader.h" />
+    <ClInclude Include="AdapterManager.h" />
+    <ClInclude Include="align16.h" />
+    <ClInclude Include="Box.h" />
+    <ClInclude Include="ConstantBuffer.h" />
+    <ClInclude Include="ConstantBufferPool.h" />
+    <ClInclude Include="ConstantBufferTypes.h" />
+    <ClInclude Include="DepthStencilView.h" />
     <ClInclude Include="DX11Core.h" />
     <ClInclude Include="DX11Define.h" />
     <ClInclude Include="DX11DllDefine.h" />
     <ClInclude Include="DX11LibraryDefine.h" />
     <ClInclude Include="DX11Renderer.h" />
+    <ClInclude Include="DX11ViewBase.h" />
+    <ClInclude Include="Forward.h" />
+    <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="InputLayout.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RasterizerState.h" />
+    <ClInclude Include="RenderTargetView.h" />
+    <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="VertexHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AdapterReader.cpp" />
+    <ClCompile Include="AdapterManager.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="ConstantBufferPool.cpp" />
+    <ClCompile Include="DepthStencilView.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DX11Core.cpp" />
     <ClCompile Include="DX11Renderer.cpp" />
+    <ClCompile Include="DX11ViewBase.cpp" />
+    <ClCompile Include="Forward.cpp" />
+    <ClCompile Include="InputLayout.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="RasterizerState.cpp" />
+    <ClCompile Include="RenderTargetView.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

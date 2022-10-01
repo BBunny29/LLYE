@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LLYe2", "LLYe2\LLYe2.vcxproj", "{F2950302-5625-4D32-BE43-31194F616C69}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -11,13 +11,26 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineBB", "..\EngineBB\EngineBB.vcxproj", "{F75E8642-42CD-4AC3-9157-2CB47A4D172B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2B7621FA-5373-4B05-A13D-E99994CE579B} = {2B7621FA-5373-4B05-A13D-E99994CE579B}
+		{CB47B893-2070-428C-B72E-985A87F9C29B} = {CB47B893-2070-428C-B72E-985A87F9C29B}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DX11", "..\DX11\DX11.vcxproj", "{2B7621FA-5373-4B05-A13D-E99994CE579B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2968120-0A0E-486A-B1E1-85876C1F47E8} = {B2968120-0A0E-486A-B1E1-85876C1F47E8}
+		{CB47B893-2070-428C-B72E-985A87F9C29B} = {CB47B893-2070-428C-B72E-985A87F9C29B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assistance", "..\Assistance\Assistance.vcxproj", "{B2968120-0A0E-486A-B1E1-85876C1F47E8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FBXParser", "..\FBXParser\FBXParser.vcxproj", "{55519221-E781-4583-B8B6-B55EDC7F778F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2968120-0A0E-486A-B1E1-85876C1F47E8} = {B2968120-0A0E-486A-B1E1-85876C1F47E8}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceManager", "..\ResourceManager\ResourceManager.vcxproj", "{CB47B893-2070-428C-B72E-985A87F9C29B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2968120-0A0E-486A-B1E1-85876C1F47E8} = {B2968120-0A0E-486A-B1E1-85876C1F47E8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +80,14 @@ Global
 		{55519221-E781-4583-B8B6-B55EDC7F778F}.Release|x64.Build.0 = Release|x64
 		{55519221-E781-4583-B8B6-B55EDC7F778F}.Release|x86.ActiveCfg = Release|Win32
 		{55519221-E781-4583-B8B6-B55EDC7F778F}.Release|x86.Build.0 = Release|Win32
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Debug|x64.ActiveCfg = Debug|x64
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Debug|x64.Build.0 = Debug|x64
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Debug|x86.ActiveCfg = Debug|Win32
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Debug|x86.Build.0 = Debug|Win32
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Release|x64.ActiveCfg = Release|x64
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Release|x64.Build.0 = Release|x64
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Release|x86.ActiveCfg = Release|Win32
+		{CB47B893-2070-428C-B72E-985A87F9C29B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

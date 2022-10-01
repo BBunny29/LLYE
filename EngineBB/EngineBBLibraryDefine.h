@@ -29,3 +29,18 @@
 #pragma comment(lib, "Assistance_x86Release.lib")
 #endif
 #endif
+
+// ResourceManager
+#ifdef _WIN64
+#ifdef _DEBUG
+#pragma comment(lib, "ResourceManager_x64Debug.lib")
+#else
+#pragma comment(lib, "ResourceManager_x64Release.lib")
+#endif
+#else
+#ifdef _DEBUG
+#pragma comment(lib, "ResourceManager_x86Debug.lib")
+#else
+#pragma comment(lib, "ResourceManager_x86Release.lib")
+#endif
+#endif

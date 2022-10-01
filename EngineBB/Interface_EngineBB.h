@@ -15,10 +15,14 @@ public:
 	virtual bool Loop() abstract;
 	virtual void Finalize() abstract;
 
+	/// OnResize
+	virtual void OnResize(int width, int height) abstract;
+
 	/// Input(keyboard / mouse) 연결
 	virtual void SetInput(std::shared_ptr<__interface IInput>& _input) abstract;
 	virtual std::shared_ptr<__interface IInput> GetInput() abstract;
 
+	/// Imgui 핸들 셋팅
 	virtual LRESULT ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) abstract;
 };
 

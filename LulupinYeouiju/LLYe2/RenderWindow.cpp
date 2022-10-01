@@ -48,16 +48,6 @@ bool RenderWindow::Initialize(GameProcess* gameProcess, HINSTANCE hInstance, std
 
 	AdjustWindowRect(&wr, WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, FALSE);
 
-	/// <summary>
-	/// 핸들 생성
-	/// </summary>
-	/// <param name="gameProcess"></param>
-	/// <param name="hInstance"></param>
-	/// <param name="window_title"></param>
-	/// <param name="window_class"></param>
-	/// <param name="width"></param>
-	/// <param name="height"></param>
-	/// <returns></returns>
 	m_handle = CreateWindowEx(0, //Extended Windows style - we are using the default. For other options, see: https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx
 		m_window_class_wide.c_str(), //Window class name
 		m_window_title_wide.c_str(), //Window Title

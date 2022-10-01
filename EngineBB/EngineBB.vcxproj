@@ -95,7 +95,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -129,7 +129,7 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -163,7 +163,7 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -197,7 +197,7 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)Imgui;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -223,6 +223,8 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentSystem.h" />
     <ClInclude Include="EngineBBDefine.h" />
     <ClInclude Include="EngineBBDllDefine.h" />
     <ClInclude Include="EngineBB.h" />
@@ -242,11 +244,14 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
     <ClInclude Include="EngineBBLibraryDefine.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="ComponentSystem.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EngineBB.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -265,6 +270,7 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>

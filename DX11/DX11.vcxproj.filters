@@ -21,6 +21,33 @@
     <Filter Include="Interface">
       <UniqueIdentifier>{134c2db8-8e43-4efa-9978-301bb1534190}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DX11Renderer\Forward">
+      <UniqueIdentifier>{bd3a0387-4668-432c-898d-9a6026c2ef27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11Renderer\DX11ViewBase">
+      <UniqueIdentifier>{ed9fc3af-9127-42a9-b35f-85efdfc611fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11Renderer\DX11ViewBase\RenderTargetView">
+      <UniqueIdentifier>{00e76579-777d-4892-9234-7b69ff748621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11Renderer\DX11ViewBase\DepthStencilView">
+      <UniqueIdentifier>{cda46b73-a956-4285-87db-086cd7deb89a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11Renderer\RasterizerState">
+      <UniqueIdentifier>{e1c73e5a-68ea-4d47-9a1f-cacc535d01bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Box">
+      <UniqueIdentifier>{96d027b5-f863-4bdc-a152-8be8a99b1e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreResource">
+      <UniqueIdentifier>{dec31f71-b404-410a-80c8-ed4527884256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreResource\align16">
+      <UniqueIdentifier>{6f497051-8c30-4196-8843-f4825c84eae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreResource\ConstantBuffer">
+      <UniqueIdentifier>{3bb6429d-8795-4392-8064-845f2adefc11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -29,7 +56,7 @@
     <ClInclude Include="DX11Renderer.h">
       <Filter>DX11Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="AdapterReader.h">
+    <ClInclude Include="AdapterManager.h">
       <Filter>DX11Renderer\AdapterReader</Filter>
     </ClInclude>
     <ClInclude Include="DX11Core.h">
@@ -47,6 +74,48 @@
     <ClInclude Include="IRenderer.h">
       <Filter>Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Forward.h">
+      <Filter>DX11Renderer\Forward</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetView.h">
+      <Filter>DX11Renderer\DX11ViewBase\RenderTargetView</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthStencilView.h">
+      <Filter>DX11Renderer\DX11ViewBase\DepthStencilView</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11ViewBase.h">
+      <Filter>DX11Renderer\DX11ViewBase</Filter>
+    </ClInclude>
+    <ClInclude Include="RasterizerState.h">
+      <Filter>DX11Renderer\RasterizerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Box</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexHelper.h">
+      <Filter>CoreResource</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBuffer.h">
+      <Filter>CoreResource</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBuffer.h">
+      <Filter>CoreResource</Filter>
+    </ClInclude>
+    <ClInclude Include="InputLayout.h">
+      <Filter>CoreResource</Filter>
+    </ClInclude>
+    <ClInclude Include="align16.h">
+      <Filter>CoreResource\align16</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBuffer.h">
+      <Filter>CoreResource\ConstantBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBufferPool.h">
+      <Filter>CoreResource\ConstantBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBufferTypes.h">
+      <Filter>CoreResource\ConstantBuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -56,11 +125,35 @@
     <ClCompile Include="DX11Renderer.cpp">
       <Filter>DX11Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="AdapterReader.cpp">
+    <ClCompile Include="AdapterManager.cpp">
       <Filter>DX11Renderer\AdapterReader</Filter>
     </ClCompile>
     <ClCompile Include="DX11Core.cpp">
       <Filter>DX11Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Forward.cpp">
+      <Filter>DX11Renderer\Forward</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetView.cpp">
+      <Filter>DX11Renderer\DX11ViewBase\RenderTargetView</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthStencilView.cpp">
+      <Filter>DX11Renderer\DX11ViewBase\DepthStencilView</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11ViewBase.cpp">
+      <Filter>DX11Renderer\DX11ViewBase</Filter>
+    </ClCompile>
+    <ClCompile Include="RasterizerState.cpp">
+      <Filter>DX11Renderer\RasterizerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Box</Filter>
+    </ClCompile>
+    <ClCompile Include="InputLayout.cpp">
+      <Filter>CoreResource</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantBufferPool.cpp">
+      <Filter>CoreResource\ConstantBuffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

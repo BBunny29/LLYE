@@ -3,6 +3,7 @@
 
 #include "RenderWindow.h"
 #include "Interface_EngineBB.h"
+#include "Resource.h"
 
 /// ※ 중요 함수 ※
 /// WINAPI : RegisterRawInputDevices()
@@ -82,6 +83,7 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 
 	m_spEngineBB->SetInput(spInput);
 	m_spEngineBB->GetInput()->Initialize();
+
 	//m_spTestOutClass->FuncA();
 	//m_spTestOutClass = m_spEngineBB->GetKeyInput('a');
 	//int a = m_spTestOutClass->a;
@@ -112,121 +114,7 @@ void GameProcess::Update()
 	m_spEngineBB->Loop();			//현재 키입력 상태
 
 	int i = 0;
-//	float deltaTime = m_Timer->GetMilisecondesElapsed();
-//	m_Timer->Restart();
-//
-//#ifdef _DEBUG
-//	while (!m_Keyboard->CharBufferIsEmpty())
-//	{
-//		unsigned char ch = m_Keyboard->ReadChar();
-//		std::string outmsg = "Char : ";
-//		outmsg += ch;
-//		outmsg += "\n";
-//		OutputDebugStringA(outmsg.c_str());
-//	}
-//
-//	while (!m_Keyboard->KeyBufferIsEmpty())
-//	{
-//		KeyboardEvent* kbe = new KeyboardEvent();
-//		kbe = m_Keyboard->ReadKey();
-//		unsigned char keycode = kbe->GetKeyCode();
-//
-//		std::string outmsg = "KeyCode : ";
-//		if (kbe->IsPress())
-//		{
-//			outmsg += "Key Press : ";
-//		}
-//		if (kbe->IsRelease())
-//		{
-//			outmsg += "Key Release : ";
-//		}
-//		outmsg += keycode;
-//		outmsg += "\n";
-//		OutputDebugStringA(outmsg.c_str());
-//	}
-//#endif // _DEBUG
-//
-//	const float camera3DSpeed = 0.01f;
-//
-//	///마우스
-//	while (!m_Mouse->EventBufferIsEmpty())
-//	{
-//		MouseEvent me = m_Mouse->ReadEvent();
-//		if (m_Mouse->IsRightDown())
-//		{
-//			if (me.GetType() == MouseEvent::EventType::RAW_MOVE)
-//			{
-//				g_Renderer->m_pCamera3D->AdjustRotation((float)me.GetPosY() * 0.01f, (float)me.GetPosX() * 0.01f, 0);
-//			}
-//		}
-//	}
-//
-//
-//	///키보드
-//	if (m_Keyboard->KeyIsPressed('W'))
-//	{
-//		g_Renderer->m_pCamera3D->AdjustPosition(g_Renderer->m_pCamera3D->GetForwardVector() * camera3DSpeed * deltaTime);
-//	}
-//	if (m_Keyboard->KeyIsPressed('S'))
-//	{
-//		g_Renderer->m_pCamera3D->AdjustPosition(g_Renderer->m_pCamera3D->GetBackwardVector() * camera3DSpeed * deltaTime);
-//	}
-//	if (m_Keyboard->KeyIsPressed('A'))
-//	{
-//		g_Renderer->m_pCamera3D->AdjustPosition(g_Renderer->m_pCamera3D->GetLeftVector() * camera3DSpeed * deltaTime);
-//	}
-//	if (m_Keyboard->KeyIsPressed('D'))
-//	{
-//		g_Renderer->m_pCamera3D->AdjustPosition(g_Renderer->m_pCamera3D->GetRightVector() * camera3DSpeed * deltaTime);
-//	}
-//	if (m_Keyboard->KeyIsPressed('E'))
-//	{
-//		g_Renderer->m_pCamera3D->AdjustPosition(0.0f, camera3DSpeed * deltaTime, 0.0f);
-//	}
-//	if (m_Keyboard->KeyIsPressed('Q'))
-//	{
-//		g_Renderer->m_pCamera3D->AdjustPosition(0.0f, -camera3DSpeed * deltaTime, 0.0f);
-//	}
-//
-//	if (m_Keyboard->KeyIsPressed(VK_LEFT))	// left
-//	{
-//		//g_gfx->gameObject.AdjustPosition(-0.05f * deltaTime, 0.0f, 0.0f);
-//	}
-//	if (m_Keyboard->KeyIsPressed(VK_RIGHT))	// right
-//	{
-//		//g_gfx->gameObject.AdjustPosition(0.05f * deltaTime, 0.0f, 0.0f);
-//	}
-//	if (m_Keyboard->KeyIsPressed(VK_UP))	// top
-//	{
-//		if (m_Keyboard->KeyIsPressed('Z'))
-//		{
-//			//g_gfx->gameObject.AdjustPosition(0.0f, 0.05f * deltaTime, 0.0f);
-//		}
-//		else
-//		{
-//			//g_gfx->gameObject.AdjustPosition(0.0f, 0.0f, 0.05f * deltaTime);
-//		}
-//	}
-//	if (m_Keyboard->KeyIsPressed(VK_DOWN))	// bottom
-//	{
-//		if (m_Keyboard->KeyIsPressed('Z'))
-//		{
-//			//g_gfx->gameObject.AdjustPosition(0.0f, -0.05f * deltaTime, 0.0f);
-//		}
-//		else
-//		{
-//			//g_gfx->gameObject.AdjustPosition(0.0f, 0.0f, -0.05f * deltaTime);
-//		}
-//	}
-//
-//
-//	//if (m_Keyboard->KeyIsPressedFirst('1'))
-//	//{
-//	//	g_Renderer->SetCameraNum();
-//	//	m_CameraNum = g_Renderer->m_CameraNum;
-//	//}
-//
-//	m_Keyboard->SetCurrentBeforeKey();
+
 }
 
 //ImGui를 위한 핸들
@@ -254,6 +142,26 @@ LRESULT CALLBACK GameProcess::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LP
 
 	switch (uMsg)
 	{
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		// 메뉴 선택을 구문 분석합니다:
+		switch (wmId)
+		{
+		case IDM_EXIT:
+			DestroyWindow(hwnd);
+			break;
+		default:
+			return DefWindowProc(hwnd, uMsg, wParam, lParam);
+		}
+
+		break;
+	}
+	case WM_SIZE:
+	{
+		m_spEngineBB->OnResize(LOWORD(lParam), HIWORD(lParam));
+		break;
+	}
 	///Keyboard Messages
 	case WM_KEYDOWN:
 	{

@@ -44,6 +44,12 @@
     <Filter Include="Define">
       <UniqueIdentifier>{5e645c46-168d-4f9d-afea-bad859e5d203}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EngineBB\Component">
+      <UniqueIdentifier>{31ae726b-1a4e-4e12-acf6-4544f00bb1c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineBB\Scene">
+      <UniqueIdentifier>{0045e0c2-744d-4dac-bf4b-c1e24800b2af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -112,6 +118,15 @@
     <ClInclude Include="Input.h">
       <Filter>EngineBB\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>EngineBB\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem.h">
+      <Filter>EngineBB\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>EngineBB\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -156,6 +171,15 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>EngineBB\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>EngineBB\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem.cpp">
+      <Filter>EngineBB\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>EngineBB\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

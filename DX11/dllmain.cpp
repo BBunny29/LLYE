@@ -28,10 +28,11 @@ extern "C" _RDX11_DLL HRESULT DllCreateInstanceIRenderer(void** ppv)
     if (!pExecutive)
     {
         hr = E_OUTOFMEMORY;
-        goto lb_return;
+        return hr;
     }
+
     hr = S_OK;
     *ppv = pExecutive;
-lb_return:
+
     return hr;
 }

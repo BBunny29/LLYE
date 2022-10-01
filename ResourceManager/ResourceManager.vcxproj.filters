@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Define">
+      <UniqueIdentifier>{2c813ae5-a484-4f59-8aae-72bb1008a8c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum">
+      <UniqueIdentifier>{98d8b2a1-9c2a-4f7d-bd0e-a390bc2a549f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{7102a6ff-5df6-497e-bffc-67d323103049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager">
+      <UniqueIdentifier>{8a6ed15e-7134-4c0a-a10c-02d0ffff0007}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManagerDllDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManagerDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManaverLibraryDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface_ResourceManager.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum_ResourceManager.h">
+      <Filter>Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11ResourceManager.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11ResourceManager.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -11,20 +11,10 @@
 #include <vector>
 #include <string>
 
-#include "EngineBBDefine.h"
-#include "EngineBBdllDefine.h"
-#include "EngineBBLibraryDefine.h"
-#include "Singleton.h"
+#include "EngineBBDefine.h"			// 헤더들
+#include "EngineBBdllDefine.h"		// 라이브러리의 이름 설정
+#include "EngineBBLibraryDefine.h"	// 이 라이브러리에 연결하는 라이브러리들
 
-/// Assist Lib 헤더
-#include "DllLoader.h"
-#include "DebugString.h"
-#include "ErrorLogger.h"
-#include "COMException.h"
-#include "PathFinder.h"
-#include "FileNameReader.h"
-#include "StringHelper.h"
-#include "Stopwatch.h"
 
 // nullpointer 체크
 #define ASSERT_NULLCHECK(pointer, message)	DebugString::PDS("Null Pointer : %s", message); \
