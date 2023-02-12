@@ -48,6 +48,12 @@
     <Filter Include="CoreResource\ConstantBuffer">
       <UniqueIdentifier>{3bb6429d-8795-4392-8064-845f2adefc11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DX11Renderer\Shader">
+      <UniqueIdentifier>{2b07dbb7-4371-4ba7-9098-7e9b26403949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11Renderer\Shader\Front">
+      <UniqueIdentifier>{2e73a8e7-3fa1-46d7-bbfc-4e1c3039dc57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -155,5 +161,13 @@
     <ClCompile Include="ConstantBufferPool.cpp">
       <Filter>CoreResource\ConstantBuffer</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="vs_BoxTest.hlsl">
+      <Filter>DX11Renderer\Shader\Front</Filter>
+    </FxCompile>
+    <FxCompile Include="ps_BoxTest.hlsl">
+      <Filter>DX11Renderer\Shader\Front</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

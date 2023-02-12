@@ -14,7 +14,6 @@ std::vector<std::string> FileNameReader::m_BinNames;		// .bin
 std::vector<std::string> FileNameReader::m_AnimNames;		// .anim
 std::vector<std::string> FileNameReader::m_MatNames;		// .mat
 
-
 bool FileNameReader::SetRootFolder(std::string& _rootPath)
 {
 	//이미 한번 사용되었으면 다시 사용할수 없다.(솔루션이 실행됬을때 한번만 사용되야한다.)
@@ -23,8 +22,13 @@ bool FileNameReader::SetRootFolder(std::string& _rootPath)
 		return false;
 	}
 
+	// 경로 목록
+	std::cout << "경로목록 :" << std::endl;
+
 	// 루트 폴더 아래의 모든 경로를 가져온다.
 	StoreAllFile(_rootPath);
+
+	std::cout << "경로목록 끝\n" << std::endl;
 
 	isSet = true;
 	return true;

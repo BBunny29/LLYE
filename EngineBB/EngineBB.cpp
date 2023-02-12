@@ -7,7 +7,6 @@
 #include "imgui_impl_win32.h"
 #include "ComponentSystem.h"
 
-
 EngineBB::EngineBB()
 {
 }
@@ -18,6 +17,10 @@ EngineBB::~EngineBB()
 
 bool EngineBB::Initialize(int hWND, int width, int height)
 {
+	m_hWND = reinterpret_cast<HWND>(hWND);;
+	m_width = width;
+	m_height = height;
+
 	/// 렌더러 DLL LIB Load
 	std::wstring _RendererDllWPath;
 	#ifdef _WIN64
@@ -77,12 +80,13 @@ bool EngineBB::Initialize(int hWND, int width, int height)
 	// 널포인터 체크
 	ASSERT_NULLCHECK(m_spResourceManager, "ResourceManager nullptr");
 
-	if (!m_spResourceManager->Initialize())
+	if (!m_spResourceManager->Initialize(m_spDX11Renderer))
 	{
 		return false;
 	}
 
 	m_spComponentManager = std::make_shared<ComponentSystem>();
+	m_spComponentManager->SetResourceManager(m_spResourceManager);
 
 	/// 타이머 셋팅
 	Timer::GetInstance()->Reset();
@@ -106,7 +110,8 @@ bool EngineBB::Loop()
 			DebugString::PDS("input a press? : %d", b);
 		}
 		
-		RenderProcess();
+		UpdateAll(Timer::GetInstance()->DeltaTime());
+		RenderAll();
 
 		// 가장 나중에 키입력 업데이트를 한다.
 		m_spInput->Update();
@@ -121,6 +126,9 @@ void EngineBB::Finalize()
 }
 void EngineBB::OnResize(int width, int height)
 {
+	m_width = width;
+	m_height = height;
+
 	if (m_spDX11Renderer != nullptr)
 	{
 		m_spDX11Renderer->OnResize(width, height);
@@ -144,7 +152,27 @@ LRESULT EngineBB::ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 	return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
 }
 
-void EngineBB::RenderProcess()
+int EngineBB::GetScreenWidth()
+{
+	return m_width;
+}
+
+int EngineBB::GetScreenHeight()
+{
+	return m_height;
+}
+
+HWND EngineBB::GetHWND()
+{
+	return m_hWND;
+}
+
+void EngineBB::UpdateAll(float dTime)
+{
+	m_spComponentManager->Update(dTime);
+}
+
+void EngineBB::RenderAll()
 {
 	m_spDX11Renderer->BeginRender();
 	m_spDX11Renderer->Render();

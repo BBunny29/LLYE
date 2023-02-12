@@ -36,8 +36,14 @@ public:
 	/// Imgui 핸들 셋팅
 	virtual LRESULT ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) override;
 
+	///Getter
+	virtual int GetScreenWidth() override;
+	virtual int GetScreenHeight() override;
+	virtual HWND GetHWND() override;
+
 private:
-	void RenderProcess();
+	void UpdateAll(float dTime);
+	void RenderAll();
 
 private:
 	std::shared_ptr<__interface IRenderer>			m_spDX11Renderer;
@@ -45,5 +51,9 @@ private:
 	std::shared_ptr<__interface IResourceManager>	m_spResourceManager;
 
 	std::shared_ptr<class ComponentSystem>			m_spComponentManager;
+	
+	HWND m_hWND;
+	int m_width;
+	int m_height;
 
 };

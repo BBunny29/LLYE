@@ -223,6 +223,7 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentSystem.h" />
     <ClInclude Include="EngineBBDefine.h" />
@@ -230,6 +231,7 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
     <ClInclude Include="EngineBB.h" />
     <ClInclude Include="Enum_EngineBB.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Global_EngineBB.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Interface_EngineBB.h" />
     <ClInclude Include="Imgui\imconfig.h" />
@@ -244,17 +246,21 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
     <ClInclude Include="EngineBBLibraryDefine.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ResourceObserver.h" />
+    <ClInclude Include="ResourceObserverManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentSystem.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EngineBB.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Global_EngineBB.cpp" />
     <ClCompile Include="Imgui\imgui.cpp" />
     <ClCompile Include="Imgui\imgui_draw.cpp" />
     <ClCompile Include="Imgui\imgui_impl_dx11.cpp" />
@@ -270,6 +276,8 @@ copy "$(ProjectDir)Enum_EngineBB.h" "$(ProjectDir)..\OwnLibs\Incs\EngineBB"</Com
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ResourceObserver.cpp" />
+    <ClCompile Include="ResourceObserverManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />

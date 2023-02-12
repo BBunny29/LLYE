@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 #include "Interface_ResourceManager.h"
-#include "DX11ResourceManager.h"
+#include "ResourceManager.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -23,7 +23,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 extern "C" _RESORCE_DLL HRESULT DllCreateInstanceIResourceManager(void** ppv)
 {
     HRESULT hr;
-    IResourceManager* pExecutive = new DX11ResourceManager;
+    IResourceManager* pExecutive = new ResourceManager;
     if (!pExecutive)
     {
         hr = E_OUTOFMEMORY;

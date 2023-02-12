@@ -2,6 +2,11 @@
 #include "DX11LibraryDefine.h"
 #include "IRenderer.h"
 
+/// <summary>
+/// 렌더러
+/// 
+/// 2023.01.03 B.Bunny
+/// </summary>
 class DX11Renderer : public IRenderer
 {
 public:
@@ -19,6 +24,10 @@ public:
 
 private:
 	void CreateSwapChain();
+
+public:
+	/// Getter
+	virtual HRESULT GetDeviceAndDeviceContext(void** device, void** deviceContext) override;
 
 private:
 	HWND m_hWnd;
@@ -39,10 +48,6 @@ private:
 	
 	//Front Buffer( 현재 화면에 보여지는 버퍼 )와 Back Buffer( 현재 연산을 해서 기록하는 버퍼 ) 를 준비해서 이것을 Flip 시키면서 번갈아 가면서 보여주는 것
 	Microsoft::WRL::ComPtr<IDXGISwapChain1> m_cpSwapchain;
-
-	/// 렌더타겟
-	std::shared_ptr<class RenderTargetView> m_pRenderTarget;
-
 
 	std::shared_ptr<class Forward> m_Forward;
 

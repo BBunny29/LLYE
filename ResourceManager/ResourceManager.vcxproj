@@ -90,14 +90,14 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\ExternalLibs\Incs\DXTK</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs;$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -107,7 +107,9 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\ResourceManager" MD "$(ProjectDir)..\
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(ProjectDir)Interface_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
-copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
+copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)MaterialData.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)VertexHelper.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,7 +122,7 @@ copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\Resourc
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\ExternalLibs\Incs\DXTK</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -129,7 +131,7 @@ copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\Resourc
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs;$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -139,7 +141,9 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\ResourceManager" MD "$(ProjectDir)..\
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(ProjectDir)Interface_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
-copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
+copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)MaterialData.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)VertexHelper.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,14 +154,14 @@ copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\Resourc
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\ExternalLibs\Incs\DXTK</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs;$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -167,7 +171,9 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\ResourceManager" MD "$(ProjectDir)..\
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(ProjectDir)Interface_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
-copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
+copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)MaterialData.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)VertexHelper.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -180,7 +186,7 @@ copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\Resourc
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\DX11;$(ProjectDir)..\ExternalLibs\Incs\DXTK</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -189,7 +195,7 @@ copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\Resourc
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\OwnLibs\Libs;$(ProjectDir)..\ExternalLibs\Libs\DXTK</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF NOT EXIST "$(ProjectDir)..\OwnLibs" MD "$(ProjectDir)..\OwnLibs"
@@ -199,17 +205,21 @@ IF NOT EXIST "$(ProjectDir)..\OwnLibs\Incs\ResourceManager" MD "$(ProjectDir)..\
 copy "$(OutputPath)*.lib" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(OutputPath)*.dll" "$(ProjectDir)..\OwnLibs\Libs"
 copy "$(ProjectDir)Interface_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
-copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
+copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)MaterialData.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"
+copy "$(ProjectDir)VertexHelper.h" "$(ProjectDir)..\OwnLibs\Incs\ResourceManager"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Enum_ResourceManager.h" />
     <ClInclude Include="Interface_ResourceManager.h" />
-    <ClInclude Include="DX11ResourceManager.h" />
+    <ClInclude Include="MaterialData.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="ResourceManagerDefine.h" />
     <ClInclude Include="ResourceManagerDllDefine.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ResourceManaverLibraryDefine.h" />
+    <ClInclude Include="VertexHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -219,7 +229,7 @@ copy "$(ProjectDir)Enum_ResourceManager.h" "$(ProjectDir)..\OwnLibs\Incs\Resourc
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="DX11ResourceManager.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,14 +14,8 @@
     <Filter Include="EngineBB\TImer">
       <UniqueIdentifier>{5dd4996f-7700-4ba0-b50e-3412aae3e4ab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="EngineBB\Transform">
-      <UniqueIdentifier>{8d672341-5222-40d1-8569-c999b44a0473}</UniqueIdentifier>
-    </Filter>
     <Filter Include="EngineBB\GameObject">
       <UniqueIdentifier>{46e05460-be2f-4f19-a5e6-d8ae643c19c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="EngineBB\Camera">
-      <UniqueIdentifier>{00b567dd-1490-48bb-b08b-dc5faee6f45d}</UniqueIdentifier>
     </Filter>
     <Filter Include="EngineBB\Input">
       <UniqueIdentifier>{c8e2f740-bc7e-4a4b-9717-67bc75c13a5c}</UniqueIdentifier>
@@ -50,6 +44,15 @@
     <Filter Include="EngineBB\Scene">
       <UniqueIdentifier>{0045e0c2-744d-4dac-bf4b-c1e24800b2af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EngineBB\Component\Camera">
+      <UniqueIdentifier>{00b567dd-1490-48bb-b08b-dc5faee6f45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineBB\ResourceObserver">
+      <UniqueIdentifier>{274c9a63-6e23-446f-a149-f52dc5f2829e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineBB\Component\Transform">
+      <UniqueIdentifier>{8d672341-5222-40d1-8569-c999b44a0473}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -74,7 +77,7 @@
       <Filter>Define</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>EngineBB\Transform</Filter>
+      <Filter>EngineBB\Component\Transform</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>EngineBB\GameObject</Filter>
@@ -127,6 +130,16 @@
     <ClInclude Include="Scene.h">
       <Filter>EngineBB\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>EngineBB\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Global_EngineBB.h" />
+    <ClInclude Include="ResourceObserverManager.h">
+      <Filter>EngineBB\ResourceObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceObserver.h">
+      <Filter>EngineBB\ResourceObserver</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -143,7 +156,7 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Transform.cpp">
-      <Filter>EngineBB\Transform</Filter>
+      <Filter>EngineBB\Component\Transform</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>EngineBB\GameObject</Filter>
@@ -180,6 +193,16 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>EngineBB\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>EngineBB\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Global_EngineBB.cpp" />
+    <ClCompile Include="ResourceObserverManager.cpp">
+      <Filter>EngineBB\ResourceObserver</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceObserver.cpp">
+      <Filter>EngineBB\ResourceObserver</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

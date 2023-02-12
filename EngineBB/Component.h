@@ -1,6 +1,7 @@
 #pragma once
 
 class GameObject;
+class Transform;
 
 enum class ComponentType
 {
@@ -31,6 +32,7 @@ public:
 	virtual ~Component();
 
 public:
+	virtual void Start() abstract;				//Start는 Update 메서드가 처음 호출되기 직전, 스크립트가 활성화 되면 호출되어야 한다. 
 	virtual void Update(float dTime) abstract;				
 
 	virtual void OnPreRender();				// 모든 컴포넌트가 들고 있을 필요가 없어서 abstract를 안붙임 (Rendering타입만 돌아가면됨)
@@ -55,11 +57,16 @@ public:
 	bool GetObjectIsExist();
 	GameObject* GetMyObject();
 
+	/// 트랜스폼
+	Transform* GetTransform();
+
 protected:
 	class GameObject* m_pMyObject;			// 자신을 들고있는 오브젝트를 알아야함 예) physics에서 transform 접근할때
 
 private:
 	bool m_bEnable;
 	const ComponentType m_Type;
+
+	Transform* m_Transform;
 
 };

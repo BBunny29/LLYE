@@ -17,6 +17,18 @@
     <Filter Include="ResourceManager">
       <UniqueIdentifier>{8a6ed15e-7134-4c0a-a10c-02d0ffff0007}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager\DX11">
+      <UniqueIdentifier>{a1094a1b-30cb-42e3-a3c1-628743191225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\DX11\Buffer">
+      <UniqueIdentifier>{b53e78af-fbdf-439e-abbc-12292f7c4b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\DX11\Buffer\VertexHelper">
+      <UniqueIdentifier>{ba09c0cd-ee8c-417d-a0e7-acebb4cacfc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\DX11\Material">
+      <UniqueIdentifier>{5ff78511-804f-4579-b18b-021ff46ad84e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -37,8 +49,14 @@
     <ClInclude Include="Enum_ResourceManager.h">
       <Filter>Enum</Filter>
     </ClInclude>
-    <ClInclude Include="DX11ResourceManager.h">
+    <ClInclude Include="ResourceManager.h">
       <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexHelper.h">
+      <Filter>ResourceManager\DX11\Buffer\VertexHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialData.h">
+      <Filter>ResourceManager\DX11\Material</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -48,7 +66,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DX11ResourceManager.cpp">
+    <ClCompile Include="ResourceManager.cpp">
       <Filter>ResourceManager</Filter>
     </ClCompile>
   </ItemGroup>

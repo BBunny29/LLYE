@@ -20,4 +20,7 @@ public:
 
 	virtual void OnResize(int width, int height) abstract;
 
+	/// Getter
+	virtual HRESULT GetDeviceAndDeviceContext(void** device, void** deviceContext) abstract;
+
 };

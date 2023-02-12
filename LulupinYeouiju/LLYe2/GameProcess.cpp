@@ -62,10 +62,10 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 
 	std::shared_ptr<__interface IInput> spInput = nullptr;
 
-	//DllLoader::LoadDll<IEngineBB>(_dllWPath.c_str(), m_spEngineBB);
 	DllLoader::LoadDll<IEngineBB, IInput>(_dllWPath.c_str(), m_spEngineBB, spInput);
+	
 	ASSERT_NULLCHECK(m_spEngineBB, "m_spEngineBB nullptr");
-	ASSERT_NULLCHECK(spInput, "m_spTestOutClass nullptr");
+	ASSERT_NULLCHECK(spInput, "spInput nullptr");
 
 	/// 윈도우 창 초기화
 	m_spRenderWindow = std::make_shared<RenderWindow>();
@@ -74,13 +74,14 @@ bool GameProcess::Initialize(HINSTANCE hInstance, std::string window_title, std:
 	{
 		return false;
 	}
-	
+
 	/// 엔진 초기화
 	if (!m_spEngineBB->Initialize((int)m_spRenderWindow->GetHWND(), width, height))
 	{
 		return false;
 	}	
 
+	/// Input 엔진으로 넘기고 초기화
 	m_spEngineBB->SetInput(spInput);
 	m_spEngineBB->GetInput()->Initialize();
 

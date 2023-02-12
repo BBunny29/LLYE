@@ -86,10 +86,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -98,6 +98,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST "$(ProjectDir)..\Data" MD "$(ProjectDir)..\Data"
+IF NOT EXIST "$(ProjectDir)..\Data\BinFile" MD "$(ProjectDir)..\Data\BinFile"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -105,10 +113,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -119,15 +127,23 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST "$(ProjectDir)..\Data" MD "$(ProjectDir)..\Data"
+IF NOT EXIST "$(ProjectDir)..\Data\BinFile" MD "$(ProjectDir)..\Data\BinFile"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -136,6 +152,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST "$(ProjectDir)..\Data" MD "$(ProjectDir)..\Data"
+IF NOT EXIST "$(ProjectDir)..\Data\BinFile" MD "$(ProjectDir)..\Data\BinFile"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -143,10 +167,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ExternalLibs\Incs\DXTK;$(ProjectDir)..\ExternalLibs\Incs\fbxsdk;$(ProjectDir)..\OwnLibs\Incs\Assistance;$(ProjectDir)..\OwnLibs\Incs\ResourceManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -157,6 +181,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\ExternalLibs\Libs\DXTK;$(ProjectDir)..\ExternalLibs\Libs\fbxsdk;$(ProjectDir)..\OwnLibs\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST "$(ProjectDir)..\Data" MD "$(ProjectDir)..\Data"
+IF NOT EXIST "$(ProjectDir)..\Data\BinFile" MD "$(ProjectDir)..\Data\BinFile"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BoneWeights.cpp" />
@@ -169,14 +201,18 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="FBXModelSerializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationData.h" />
+    <ClInclude Include="BinaryFileLayout.h" />
     <ClInclude Include="BoneWeights.h" />
     <ClInclude Include="FBXParser.h" />
     <ClInclude Include="FBXParserLibraryDefine.h" />
+    <ClInclude Include="OptMath.h" />
     <ClInclude Include="ParsingData.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="FBXModelSerializer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

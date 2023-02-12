@@ -24,6 +24,12 @@ public:
 
 	/// Imgui 핸들 셋팅
 	virtual LRESULT ImGuiHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) abstract;
+	
+	///Getter
+	virtual int GetScreenWidth() abstract;
+	virtual int GetScreenHeight() abstract;
+	virtual HWND GetHWND() abstract;
+
 };
 
 __interface IInput

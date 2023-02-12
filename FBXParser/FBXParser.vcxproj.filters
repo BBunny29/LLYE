@@ -11,42 +11,66 @@
     <Filter Include="pch">
       <UniqueIdentifier>{c243afee-ed34-48f9-ab92-8069c1dcdc90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Define">
+      <UniqueIdentifier>{2b8dc388-7259-4cc1-a1f8-a3a34a327eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FBXParser\DataStruct">
+      <UniqueIdentifier>{94fdff7d-b8c8-49a5-92cd-afa1ba86a281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serializer">
+      <UniqueIdentifier>{f1b17435-144c-4c0c-a380-92783c5a1f6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serializer\ModelSerializer">
+      <UniqueIdentifier>{70b1cb2e-d813-4311-ae05-e4b9144b8136}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="BoneWeights.cpp">
-      <Filter>FBXParser</Filter>
-    </ClCompile>
     <ClCompile Include="FBXParser.cpp">
-      <Filter>FBXParser</Filter>
-    </ClCompile>
-    <ClCompile Include="ParsingData.cpp">
       <Filter>FBXParser</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>pch</Filter>
     </ClCompile>
+    <ClCompile Include="BoneWeights.cpp">
+      <Filter>FBXParser\DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="ParsingData.cpp">
+      <Filter>FBXParser\DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="FBXModelSerializer.cpp">
+      <Filter>Serializer\ModelSerializer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimationData.h">
-      <Filter>FBXParser</Filter>
-    </ClInclude>
-    <ClInclude Include="BoneWeights.h">
-      <Filter>FBXParser</Filter>
-    </ClInclude>
     <ClInclude Include="FBXParser.h">
-      <Filter>FBXParser</Filter>
-    </ClInclude>
-    <ClInclude Include="FBXParserLibraryDefine.h">
-      <Filter>FBXParser</Filter>
-    </ClInclude>
-    <ClInclude Include="ParsingData.h">
       <Filter>FBXParser</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="FBXParserLibraryDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationData.h">
+      <Filter>FBXParser\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="BoneWeights.h">
+      <Filter>FBXParser\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="ParsingData.h">
+      <Filter>FBXParser\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryFileLayout.h">
+      <Filter>Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="OptMath.h">
+      <Filter>Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="FBXModelSerializer.h">
+      <Filter>Serializer\ModelSerializer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

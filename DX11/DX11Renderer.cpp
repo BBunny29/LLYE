@@ -100,7 +100,7 @@ bool DX11Renderer::Initialize(int hwnd, int screenWidth, int screenHeight)
 		m_Forward->SetViewports(m_cpDeviceContext);
 
 		m_TestBox = std::make_shared<Box>();
-		m_TestBox->Initialize(m_cpDevice.Get(), m_cpDeviceContext.Get(), , );
+		//m_TestBox->Initialize(m_cpDevice.Get(), m_cpDeviceContext.Get(), , );
 	}
 	catch (COMException& exception)
 	{
@@ -119,7 +119,7 @@ void DX11Renderer::BeginRender()
 	m_cpDeviceContext->OMSetDepthStencilState(RasterizerState::GetDepthStencilState(), 0);
 	m_cpDeviceContext->OMSetBlendState(RasterizerState::GetBlenderState(), NULL, 0xFFFFFFFF);
 	m_cpDeviceContext->PSSetSamplers(0, 1, RasterizerState::GetLinearSamplerStateAddressOf());
-	m_cpDeviceContext->RSSetViewports(1, &m_pRenderTarget->GetViewPort());
+	m_cpDeviceContext->RSSetViewports(1, &m_Forward->GetRenderTarget()->GetViewPort());
 
 	m_Forward->BeginRender(m_cpDeviceContext);
 }
@@ -203,6 +203,23 @@ void DX11Renderer::CreateSwapChain()
 	{
 		ErrorLogger::Log(exception);
 	}
+}
+
+HRESULT DX11Renderer::GetDeviceAndDeviceContext(void** device, void** deviceContext)
+{
+	HRESULT hr;
+
+	*device = m_cpDevice.Get();
+	*deviceContext = m_cpDeviceContext.Get();
+
+	if (device != nullptr || deviceContext != nullptr)
+	{
+		hr = E_OUTOFMEMORY;
+		return hr;
+	}
+
+	hr = S_OK;
+	return hr;
 }
 
 void DX11Renderer::Finalize()

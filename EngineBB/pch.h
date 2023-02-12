@@ -15,7 +15,6 @@
 #include "EngineBBdllDefine.h"		// 라이브러리의 이름 설정
 #include "EngineBBLibraryDefine.h"	// 이 라이브러리에 연결하는 라이브러리들
 
-
 // nullpointer 체크
 #define ASSERT_NULLCHECK(pointer, message)	DebugString::PDS("Null Pointer : %s", message); \
 											DebugString::PDS_LOG; \

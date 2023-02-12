@@ -89,3 +89,8 @@ GameObject* Component::GetMyObject()
 	return m_pMyObject;
 }
 
+Transform* Component::GetTransform()
+{
+	return nullptr;
+}
+
